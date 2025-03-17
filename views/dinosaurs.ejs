@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <%- include("partials/head.ejs", {title: locals.title}) %>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <div class="container">
+      <main class="dino-page">
+        <a class="button" href="/dinosaurs/new-dino">New Dino</a>
+        <% if (locals.dinosaurs) {
+          locals.dinosaurs.forEach(dinosaur => { %>
+            <section class="dino-page__section">
+              <a class="dino-page__link" href="/dinosaurs/<%=dinosaur.id%>" title="Navigate to <%= dinosaur.name %> ">
+                <img class="dino-page__image" src="<%= dinosaur.img_url %>" alt="">
+              </a>
+              <h2 class="dino-page__heading">
+                <a class="dino-page__link" href="/dinosaurs/<%=dinosaur.id%>" title="Navigate to <%= dinosaur.name %> "> <%= dinosaur.name  %> </a>
+              </h2>
+            </section>
+       <%   });
+        } else { %>
+          <h2 class="dino-page__error-heading">No dinosaurs found... Try again</h2>
+     <% } %>
+
+      </main>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
