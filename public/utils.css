@@ -51,9 +51,9 @@
   --footer-height: 100px;
 
   /* Border Radius */
-  --border-radius-small: 4px;
-  --border-radius-medium: 8px;
-  --border-radius-large: 16px;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
   --border-width: 1px;
 
   /* Breakpoints */
@@ -69,12 +69,12 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 10px;
+    padding: 0 20px;
   }
 }
 
