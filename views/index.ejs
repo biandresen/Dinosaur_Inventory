@@ -3,6 +3,24 @@
   <%- include("partials/head.ejs", {title: locals.title}) %>
   <body>
     <%- include("partials/header.ejs") %>
+    <div class="container">
+      <main class="homepage">
+        <section>
+          <img class="homepage__image hero-image-1" src="" alt="">
+          <h2 class="homepage__heading">
+            <a class="homepage__link" href="/dinosaurs.ejs" title="Navigate to dinosaurs inventory">Dinosaurs</a>
+          </h2>
+          <p class="homepage__body">Check out all of the different dinosaurs on this page. Read and learn more about them and prepare to be amazed by these wonderful creatures.</p>
+        </section>
+        <section>
+          <img class="homepage__image hero-image-2" src="" alt="">
+          <h2 class="homepage__heading">
+            <a class="homepage__link" href="/categories.ejs" title="Navigate to dinosaurs inventory">Dinosaurs</a>
+          </h2>
+          <p class="homepage__body">Check out all of the different dinosaurs on this page. Read and learn more about them and prepare to be amazed by these wonderful creatures.</p>
+        </section>
+      </main>
+    </div>
     <%- include("partials/footer.ejs") %>
   </body>
 </html>
