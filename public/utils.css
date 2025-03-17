@@ -38,9 +38,9 @@
 
   /* Spacing */
   --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 32px;
+  --spacing-s: 8px;
+  --spacing-m: 16px;
+  --spacing-l: 32px;
   --spacing-xl: 64px;
   --spacing-xxl: 128px;
 
@@ -62,4 +62,24 @@
   --breakpoint-md: 1024px;
   --breakpoint-lg: 1200px;
   --breakpoint-xl: 1440px;
+}
+
+/* Generic Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+  }
 }

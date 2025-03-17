@@ -1,4 +1,39 @@
 @import url(reset.css);
 @import url(utils.css);
 
+body {
+  color: var(--clr-text-dark);
+  font-family: var(--font-family-primary);
+}
+
 /** HEADER */
+header {
+  width: 100%;
+  height: 90px;
+  background-color: var(--clr-secondary-dark);
+}
+.header__nav {
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  font-size: var(--font-size-40px);
+  margin: 0 auto -13px auto;
+}
+.nav__list {
+  margin: 0 auto;
+  display: flex;
+  gap: var(--spacing-xxl);
+}
+.nav__item {
+  list-style: none;
+}
+.nav__link {
+  font-size: var(--font-size-24px);
+  color: var(--clr-text-dark);
+  text-decoration: none;
+}
+.nav__link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
