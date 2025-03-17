@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap");
+:root {
+  /* Colors: Dark mode */
+  --clr-bg-dark: #342c2a;
+  --clr-primary-dark: #504444;
+  --clr-secondary-dark: #504444;
+  --clr-tertiary-dark: #fe7332;
+  --clr-button-dark: #fbb994;
+  --clr-text-dark: #ffd363;
+  --clr-shadow-dark: rgb(40, 40, 40);
+
+  /* Colors: Light mode */
+  --clr-bg-light: #f4f1f0;
+  --clr-primary-light: #6f5d5a;
+  --clr-secondary-light: #6f5d5a;
+  --clr-tertiary-light: #fe8a50;
+  --clr-button-light: #f4c1a1;
+  --clr-text-light: #3d3d3d;
+  --clr-shadow-light: rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-family-primary: "Markazi Text", sans-serif;
+  --font-family-secondary: "Georgia", serif;
+  --font-size-14px: 0.875rem;
+  --font-size-18px: 1.125rem;
+  --font-size-24px: 1.5rem;
+  --font-size-32px: 2rem;
+  --font-size-40px: 2.5rem;
+  --font-size-48px: 3rem;
+  --font-size-72px: 4.5rem;
+  --font-size-96px: 6rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --line-height-base: 1.5;
+  --line-height-heading: 1.2;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+  --spacing-xxl: 128px;
+
+  /* Layout */
+  --container-width: 1200px;
+  --grid-gap: 16px;
+  --header-height: 60px;
+  --footer-height: 100px;
+
+  /* Border Radius */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 16px;
+  --border-width: 1px;
+
+  /* Breakpoints */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1440px;
+}
