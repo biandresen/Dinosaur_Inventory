@@ -1,12 +1,20 @@
 @import url(reset.css);
 @import url(utils.css);
 
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 body {
   color: var(--clr-text-dark);
   background-color: var(--clr-bg-dark);
   font-family: var(--font-family-primary);
 }
-
+main {
+  flex: 1;
+}
 /** HEADER */
 header {
   width: 100%;
@@ -31,10 +39,8 @@ h1 {
 }
 .nav__link {
   font-size: var(--font-size-24px);
-  color: var(--clr-text-dark);
 }
 .nav__link:hover {
-  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -43,8 +49,10 @@ h1 {
   display: flex;
   flex-direction: column;
 }
-.homepage__image {
+.homepage__section {
   margin-top: 15px;
+}
+.homepage__image {
   border-radius: var(--border-radius-m);
   width: auto;
   height: 120px;
@@ -55,15 +63,51 @@ h1 {
 }
 .homepage__link {
   font-size: var(--font-size-40px);
-  color: var(--clr-text-dark);
+}
+
+/** DINOSAURS */
+.dino-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-m);
+  background-color: var(--clr-button-dark);
+  border-radius: var(--border-radius-m);
+  text-decoration: none;
+  text-align: center;
+  font-weight: var(--font-weight-semi-bold);
+  margin-top: 15px;
+  font-size: var(--font-size-24px);
+  color: black;
+}
+.button:hover {
+  background-color: var(--clr-button-dark-hover);
+}
+.dino-page__section {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dino-page__image {
+  margin: 0 auto;
+  height: auto;
+  width: 80%;
+  border-radius: var(--border-radius-m);
+  margin-bottom: -10px;
+}
+.dino-page__heading {
+  font-size: var(--font-size-40px);
 }
 
 /** FOOTER */
 footer {
-  position: absolute;
-  bottom: 0;
+  font-size: var(--font-size-18px);
   width: 100%;
-  height: 45px;
+  min-height: 45px;
   background-color: var(--clr-secondary-dark);
   display: flex;
 }

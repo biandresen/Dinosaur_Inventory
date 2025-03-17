@@ -6,6 +6,7 @@
   --clr-secondary-dark: #504444;
   --clr-tertiary-dark: #fe7332;
   --clr-button-dark: #fbb994;
+  --clr-button-dark-hover: #ffceb1;
   --clr-text-dark: #ffd363;
   --clr-shadow-dark: rgb(40, 40, 40);
 
@@ -15,6 +16,7 @@
   --clr-secondary-light: #6f5d5a;
   --clr-tertiary-light: #fe8a50;
   --clr-button-light: #f4c1a1;
+  --clr-button-light-hover: #eca67a;
   --clr-text-light: #3d3d3d;
   --clr-shadow-light: rgba(0, 0, 0, 0.1);
 
@@ -64,9 +66,18 @@
   --breakpoint-xl: 1440px;
 }
 
+a {
+  text-decoration: none;
+  color: var(--clr-text-dark);
+}
+a:hover {
+  cursor: pointer;
+}
+
 /* Generic Container */
 .container {
   width: 100%;
+  flex: 1;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;

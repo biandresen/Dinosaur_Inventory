@@ -12,10 +12,6 @@
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-}
-
 body {
   /* 3. Add accessible line-height */
   line-height: 1.5;
