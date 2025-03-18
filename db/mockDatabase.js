@@ -178,6 +178,10 @@ export function getMainCategories() {
   );
 }
 
+export function getAllSubCategories() {
+  return mockDatabase.category;
+}
+
 export function getSubCategories(id) {
   return mockDatabase.category.filter((subCat) => subCat.parent_id === id);
 }
