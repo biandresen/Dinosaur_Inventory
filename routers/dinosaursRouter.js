@@ -4,4 +4,4 @@ import { dinosaurController } from "../controllers/dinosaursController.js";
 export const dinosaursRouter = Router();
 
 dinosaursRouter.get("/", dinosaurController.getAllDinosaurs);
-dinosaursRouter.get("/:id", dinosaurController.getDinosaur);
+dinosaursRouter.get("/:id", dinosaurController.getDinosaurById);

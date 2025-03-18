@@ -177,3 +177,7 @@ export function getMainCategories() {
     (category) => category.parent_id === null
   );
 }
+
+export function getSubCategories(id) {
+  return mockDatabase.category.filter((subCat) => subCat.parent_id === id);
+}
