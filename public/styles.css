@@ -139,6 +139,49 @@ h1 {
   font-size: var(--font-size-40px);
 }
 
+/** DINOSAUR DETAILS  */
+.dino-details-page {
+  display: flex;
+  flex-direction: column;
+}
+.dino-details-page__section {
+  margin-top: 15px;
+}
+.dino-details-page__image {
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  border-radius: var(--border-radius-m);
+  margin-bottom: -10px;
+}
+.dino-details-page__heading {
+  font-size: var(--font-size-40px);
+  margin-bottom: -12px;
+}
+.dino-details-page__body {
+  font-size: var(--font-size-18px);
+  line-height: var(--spacing-ml);
+}
+.dino-details-page__data-section {
+  border-radius: var(--spacing-m);
+  margin: 15px 0;
+  padding: 0px 15px;
+  background-color: var(--clr-secondary-dark);
+}
+.data-section__header {
+  font-size: var(--font-size-40px);
+}
+.data-section__list {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.data-section__item {
+  list-style: none;
+  font-size: var(--font-size-24px);
+}
+
 /** FOOTER */
 footer {
   font-size: var(--font-size-18px);
