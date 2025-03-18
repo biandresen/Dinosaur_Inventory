@@ -10,7 +10,7 @@
           locals.dinosaurs.forEach(dinosaur => { %>
             <section class="dino-page__section">
               <a class="dino-page__link" href="/dinosaurs/<%=dinosaur.id%>" title="Navigate to <%= dinosaur.name %> ">
-                <img class="dino-page__image" src="<%= dinosaur.img_url %>" alt="">
+                <img class="dino-page__image" src="/<%= dinosaur.img_url %>" alt="">
               </a>
               <h2 class="dino-page__heading">
                 <a class="dino-page__link" href="/dinosaurs/<%=dinosaur.id%>" title="Navigate to <%= dinosaur.name %> "> <%= dinosaur.name  %> </a>

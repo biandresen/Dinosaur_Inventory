@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <%- include("partials/head.ejs", {title: locals.title}) %>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <div class="container">
+      <main class="dino-details-page">
+        <% if (locals.dinosaur) { %>
+          <section class="dino-details-page__section">
+            <img class="dino-details-page__image" src="/<%= locals.dinosaur.img_url%>" alt="<%= locals.dinosaur.name %>">
+            <h2 class="dino-details-page__heading"><%= locals.dinosaur.name %></h2>
+            <p class="dino-details-page__body"><%= locals.dinosaur.description %></p>
+          </section>
+          <section class="dino-details-page__data-section">
+            <h3 class="data-section__header">About</h3>
+            <ul class="data-section__list">
+              <li class="data-section__item"><strong>Name: </strong><%= locals.dinosaur.name %> </li>
+              <li class="data-section__item"><strong>Period: </strong><%= locals.dinosaur.period %> </li>
+              <li class="data-section__item"><strong>Diet: </strong><%= locals.dinosaur.diet %> </li>
+              <li class="data-section__item"><strong>Class: </strong><%= locals.dinosaur.class %> </li>
+              <li class="data-section__item"><strong>Habitat: </strong><%= locals.dinosaur.habitat %> </li>
+              <li class="data-section__item"><strong>Weight: </strong><%= locals.dinosaur.weight_kg %> kg </li>
+              <li class="data-section__item"><strong>Height: </strong><%= locals.dinosaur.height_m %> m </li>
+            </ul>
+          </section>
+      <%  } else { %>
+        <h2 class="dino-details-page__error-heading">No dinosaur information found... Try again</h2>
+      <% } %>
+      </main>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
