@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <%- include("partials/head.ejs", {title: locals.title}) %>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <div class="container">
+      <main class="category-details">
+        <% if (locals.parentCategory) { %>
+          <section class="category-details-page__section">
+            <img class="category-details-page__image" src="/<%= locals.parentCategory.img_url%>" alt="<%= locals.parentCategory.name %>">
+            <h2 class="category-details-page__heading"><%= locals.parentCategory.name %></h2>
+            <p class="category-details-page__body"><%= locals.parentCategory.description %></p>
+          </section>
+          <section class="category-details-page__sub-section">
+            <% if (locals.subCategories) {
+              locals.subCategories.forEach(subCategory => { %>
+              <a href="/dinosaurs/query?filter=<%= subCategory.name %>">
+                <h3 class="sub-section__header"> <%= subCategory.name %> </h3>
+              </a>
+              <p class="sub-section__body"> <%= subCategory.description %> </p>
+         <% });
+            } else { %>
+              <h2 class="category-details-page__error-heading">No sub category information found... Try again</h2>
+         <% } %>
+          </section>
+      <%  } else { %>
+        <h2 class="category-details-page__error-heading">No category information found... Try again</h2>
+      <% } %>
+      </main>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
