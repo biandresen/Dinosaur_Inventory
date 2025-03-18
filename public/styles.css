@@ -1,6 +1,7 @@
 @import url(reset.css);
 @import url(utils.css);
 
+/** GENERAL */
 html,
 body {
   height: 100%;
@@ -15,6 +16,22 @@ body {
 main {
   flex: 1;
 }
+.button {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-m);
+  background-color: var(--clr-button-dark);
+  border-radius: var(--border-radius-m);
+  text-decoration: none;
+  text-align: center;
+  font-weight: var(--font-weight-semi-bold);
+  margin-top: 15px;
+  font-size: var(--font-size-24px);
+  color: black;
+}
+.button:hover {
+  background-color: var(--clr-button-dark-hover);
+}
+
 /** HEADER */
 header {
   width: 100%;
@@ -71,21 +88,6 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
-.button {
-  display: inline-block;
-  padding: var(--spacing-xs) var(--spacing-m);
-  background-color: var(--clr-button-dark);
-  border-radius: var(--border-radius-m);
-  text-decoration: none;
-  text-align: center;
-  font-weight: var(--font-weight-semi-bold);
-  margin-top: 15px;
-  font-size: var(--font-size-24px);
-  color: black;
-}
-.button:hover {
-  background-color: var(--clr-button-dark-hover);
-}
 .dino-page__section {
   margin-top: 15px;
   display: flex;
@@ -100,6 +102,35 @@ h1 {
   margin-bottom: -10px;
 }
 .dino-page__heading {
+  font-size: var(--font-size-40px);
+}
+.dino-page__error-heading {
+  font-size: var(--font-size-40px);
+}
+
+/** CATEGORIES */
+.categories-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.categories-page__section {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.categories-page__image {
+  margin: 0 auto;
+  height: auto;
+  width: 80%;
+  border-radius: var(--border-radius-m);
+  margin-bottom: -10px;
+}
+.categories-page__heading {
+  font-size: var(--font-size-40px);
+}
+.categories-page__error-heading {
   font-size: var(--font-size-40px);
 }
 
