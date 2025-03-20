@@ -2,7 +2,7 @@ const mockDatabase = {
   category: [
     {
       id: 1,
-      name: "Time Period",
+      name: "Period",
       description:
         "Explains the time period of when the respective dinosaur lived",
       img_url: "period.png",
@@ -135,7 +135,7 @@ const mockDatabase = {
       diet_id: 8, // "Carnivore"
       class_id: 10, // "Theropod"
       habitat_id: 12, // "Forest"
-      img_url: "t-rex.jpg",
+      img_url: "uploads/t-rex.jpg",
       created_at: new Date(),
     },
     {
@@ -148,7 +148,7 @@ const mockDatabase = {
       diet_id: 7, // "Herbivore"
       class_id: 11, // "Sauropod"
       habitat_id: 13, // "Plains"
-      img_url: "brachiosaurus.jpg",
+      img_url: "uploads/brachiosaurus.jpg",
       created_at: new Date(),
     },
   ],
@@ -178,10 +178,37 @@ export function getMainCategories() {
   );
 }
 
-export function getAllSubCategories() {
+export function getAllCategories() {
   return mockDatabase.category;
 }
 
 export function getSubCategories(id) {
   return mockDatabase.category.filter((subCat) => subCat.parent_id === id);
+}
+
+export function addNewDino(newDino) {
+  function findCategoryId(categoryName) {
+    const category = mockDatabase.category.find(
+      (cat) => cat.name === categoryName
+    );
+    return category ? category.id : null;
+  }
+
+  const treatedDino = {
+    id: mockDatabase.dinosaur.length + 1,
+    name: newDino.name,
+    description: newDino.description,
+    weight_kg: newDino.weight,
+    height_m: newDino.height,
+    period_id: findCategoryId(newDino.period),
+    diet_id: findCategoryId(newDino.diet),
+    class_id: findCategoryId(newDino.classType),
+    habitat_id: findCategoryId(newDino.habitat),
+    img_url: newDino.img_url,
+    created_at: new Date(),
+  };
+
+  console.log("TREATED DINO: ", treatedDino);
+
+  mockDatabase.dinosaur.push(treatedDino);
 }

@@ -7,7 +7,7 @@
       <main class="category-details">
         <% if (locals.parentCategory) { %>
           <section class="category-details-page__section">
-            <img class="category-details-page__image" src="/<%= locals.parentCategory.img_url%>" alt="<%= locals.parentCategory.name %>">
+            <img class="category-details-page__image" src="/images/<%= locals.parentCategory.img_url%>" alt="<%= locals.parentCategory.name %>">
             <h2 class="category-details-page__heading"><%= locals.parentCategory.name %></h2>
             <p class="category-details-page__body"><%= locals.parentCategory.description %></p>
           </section>

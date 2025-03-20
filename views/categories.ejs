@@ -10,7 +10,7 @@
           locals.categories.forEach(category => { %>
             <section class="categories-page__section">
               <a class="categories-page__link" href="/categories/<%=category.id%>" title="Navigate to <%= category.name %> ">
-                <img class="categories-page__image" src="/<%= category.img_url %>" alt="">
+                <img class="categories-page__image" src="/images/<%= category.img_url %>" alt="">
               </a>
               <h2 class="categories-page__heading">
                 <a class="categories-page__link" href="/categories/<%=category.id%>" title="Navigate to <%= category.name %> "> <%= category.name  %> </a>

@@ -11,7 +11,7 @@
             <p class="new-dino-page__body">Here you can add a new dinosaur to the database by filling in the form.</p>
           </section>
           <section class="new-dino-page__form-section">
-            <form class="new-dino-page__form" action="/new-dino" method="POST" enctype="multipart/form-data">
+            <form class="new-dino-page__form" action="/dinosaurs/new-dino" method="POST" enctype="multipart/form-data">
               <label for="name">*Name:</label>
               <input name="name" id="name" type="text" required>
               <label for="period">*Period:</label>
@@ -28,10 +28,10 @@
                   <%  }); %>
                   <option value="">other</option>
               </select>
-              <label for="classes">*Class:</label>
-              <select name="classes" id="classes" required>
-                <% locals.classes.forEach(cl => { %>
-                  <option value="<%= cl.name %>"><%= cl.name %></option>
+              <label for="classType">*Class:</label>
+              <select name="classType" id="classType" required>
+                <% locals.classes.forEach(classType => { %>
+                  <option value="<%= classType.name %>"><%= classType.name %></option>
                   <%  }); %>
                   <option value="">other</option>
               </select>
@@ -44,7 +44,7 @@
               </select>
               <label for="weight">Weight (kg):</label>
               <input name="weight" id="weight" type="number" >
-              <label for="height">Height (kg):</label>
+              <label for="height">Height (m):</label>
               <input name="height" id="height" type="number">
               <label for="description">*Description:</label>
               <textarea name="description" id="description" required></textarea>

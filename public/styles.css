@@ -68,15 +68,16 @@ h1 {
   flex-direction: column;
 }
 .homepage__section {
-  margin-top: 15px;
+  margin: 15px 0;
 }
 .homepage__image {
   border-radius: var(--border-radius-m);
-  width: auto;
-  height: 120px;
+  height: auto;
+  width: 100%;
   background-color: var(--clr-tertiary-dark);
 }
 .homepage__heading {
+  margin-top: -10px;
   margin-bottom: -10px;
 }
 .homepage__link {
