@@ -285,6 +285,58 @@ h1 {
   padding: 10px 5px;
 }
 
+/** NEW CATEGORY PAGE  */
+.new-category-page {
+  display: flex;
+  flex-direction: column;
+}
+.new-category-page__section {
+  margin-top: 15px;
+}
+.new-category-page__image {
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  border-radius: var(--border-radius-m);
+  margin-bottom: -10px;
+}
+.new-category-page__heading {
+  font-size: var(--font-size-40px);
+  margin-bottom: -10px;
+}
+.new-category-page__body {
+  font-size: var(--font-size-24px);
+  line-height: var(--spacing-ml);
+}
+.new-category-page__form-section {
+  background-color: var(--clr-secondary-dark);
+  border-radius: var(--spacing-m);
+  margin: 30px 0;
+  padding: 15px 18px;
+}
+.new-category-page__form {
+  display: flex;
+  flex-direction: column;
+}
+.new-category-page__form label {
+  font-size: var(--font-size-24px);
+  margin: -5px;
+}
+.new-category-page__form input,
+.new-category-page__form textarea,
+.new-category-page__form select {
+  text-indent: 8px;
+  font-size: var(--font-size-24px);
+  margin-bottom: 5px;
+  border-radius: var(--border-radius-m);
+  border-style: none;
+  background-color: var(--clr-bg-dark);
+  color: var(--clr-tertiary-dark);
+}
+.new-category-page__form select {
+  padding: 3px;
+}
+
 /** FOOTER */
 footer {
   font-size: var(--font-size-18px);
