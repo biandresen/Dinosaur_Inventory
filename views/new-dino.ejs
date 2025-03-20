@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <%- include("partials/head.ejs", {title: locals.title}) %>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <div class="container">
+      <main class="new-dino-page">
+          <section class="new-dino-page__section">
+            <img class="new-dino-page__image" src="/t-rex.jpg" alt="">
+            <h2 class="new-dino-page__heading">Add a new dinosaur</h2>
+            <p class="new-dino-page__body">Here you can add a new dinosaur to the database by filling in the form.</p>
+          </section>
+          <section class="new-dino-page__form-section">
+            <form class="new-dino-page__form" action="/new-dino" method="POST" enctype="multipart/form-data">
+              <label for="name">*Name:</label>
+              <input name="name" id="name" type="text" required>
+              <label for="period">*Period:</label>
+              <select name="period" id="period" required>
+                <% locals.periods.forEach(period => { %>
+                  <option value="<%= period.name %>"><%= period.name %></option>
+                  <%  }); %>
+                  <option value="">other</option>
+              </select>
+              <label for="diet">*Diet:</label>
+              <select name="diet" id="diet" required>
+                <% locals.diets.forEach(diet => { %>
+                  <option value="<%= diet.name %>"><%= diet.name %></option>
+                  <%  }); %>
+                  <option value="">other</option>
+              </select>
+              <label for="classes">*Class:</label>
+              <select name="classes" id="classes" required>
+                <% locals.classes.forEach(cl => { %>
+                  <option value="<%= cl.name %>"><%= cl.name %></option>
+                  <%  }); %>
+                  <option value="">other</option>
+              </select>
+              <label for="habitat">*Habitat:</label>
+              <select name="habitat" id="habitat" required>
+                <% locals.habitats.forEach(habitat => { %>
+                  <option value="<%= habitat.name %>"><%= habitat.name %></option>
+                  <%  }); %>
+                  <option value="">other</option>
+              </select>
+              <label for="weight">Weight (kg):</label>
+              <input name="weight" id="weight" type="number" >
+              <label for="height">Height (kg):</label>
+              <input name="height" id="height" type="number">
+              <label for="description">*Description:</label>
+              <textarea name="description" id="description" required></textarea>
+              <label for="imageUpload">*Upload an Image:</label>
+              <input type="file" id="imageUpload" name="image" accept="image/*" required>              <button type="submit" class="button form-button">Add Dino</button>
+            </form>
+          </section>
+      </main>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
