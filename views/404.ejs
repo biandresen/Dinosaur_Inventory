@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <%- include("partials/head.ejs", {title: locals.title}) %>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <div class="container">
+      <main class="page-404">
+        <img class="page-404__image" src="/images/404-logo.jpg" alt="">
+        <section class="page-404__section">
+          <h3 class="page-404__heading">404 - error</h3>
+          <p class="page-404__sub-heading">PAGE NOT FOUND</p>
+          <p class="page-404__body">YOUR SEARCH GOT EATEN BY A T-REX</p>
+          <a class="button button-page-404" href="/" >Back to Homepage</a>
+        </section>
+      </main>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
