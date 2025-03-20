@@ -5,8 +5,8 @@
   --clr-primary-dark: #504444;
   --clr-secondary-dark: #504444;
   --clr-tertiary-dark: #fe7332;
-  --clr-button-dark: #fbb994;
-  --clr-button-dark-hover: #ffceb1;
+  --clr-button-dark: #fe7332;
+  --clr-button-dark-hover: #fd8953;
   --clr-text-dark: #ffd363;
   --clr-shadow-dark: rgb(40, 40, 40);
 
@@ -57,6 +57,8 @@
   --border-radius-s: 4px;
   --border-radius-m: 8px;
   --border-radius-l: 16px;
+  --border-radius-xl: 24px;
+  --border-radius-2xl: 50px;
   --border-width: 1px;
 
   /* Breakpoints */
