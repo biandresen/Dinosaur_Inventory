@@ -1,14 +1,14 @@
-import { getMainCategories, getSubCategories } from "../db/mockDatabase.js";
+import { getParentCategories, getSubCategories } from "../db/mockDatabase.js";
 
 export const categoriesController = {
   getAllCategories: (req, res) => {
-    const categories = getMainCategories();
+    const categories = getParentCategories();
     res.render("categories", { title: "Categories", categories });
   },
   getCategoriesById: (req, res) => {
     const id = Number(req.params.id);
-    const mainCategories = getMainCategories();
-    const parentCategory = mainCategories.find((cat) => cat.id === id);
+    const parentCategories = getParentCategories();
+    const parentCategory = parentCategories.find((cat) => cat.id === id);
 
     const subCategories = getSubCategories(id);
 
@@ -16,6 +16,13 @@ export const categoriesController = {
       title: parentCategory.name,
       parentCategory,
       subCategories,
+    });
+  },
+  getNewCategoriesForm: (req, res) => {
+    const parentCategories = getParentCategories();
+    res.render("new-category", {
+      title: "New Category",
+      parentCategories,
     });
   },
 };

@@ -36,8 +36,8 @@ export const dinosaurController = {
   },
   getNewDinoForm: (req, res) => {
     const categories = getAllCategories();
+    //TODO just use the getSubCategories-function instead
     const subCategories = categories.filter((cat) => cat.parent_id !== null);
-
     const periods = subCategories.filter((cat) => cat.parent_id === 1);
     // console.log("Periods: ", periods);
 

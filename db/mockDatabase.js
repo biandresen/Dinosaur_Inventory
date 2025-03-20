@@ -172,7 +172,7 @@ export function getDinosaursWithDetails() {
   }));
 }
 
-export function getMainCategories() {
+export function getParentCategories() {
   return mockDatabase.category.filter(
     (category) => category.parent_id === null
   );

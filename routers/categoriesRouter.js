@@ -3,5 +3,9 @@ import { categoriesController } from "../controllers/categoriesController.js";
 
 export const categoriesRouter = Router();
 
-categoriesRouter.get("/", categoriesController.getAllCategories);
+categoriesRouter.get(
+  "/new-category",
+  categoriesController.getNewCategoriesForm
+);
 categoriesRouter.get("/:id", categoriesController.getCategoriesById);
+categoriesRouter.get("/", categoriesController.getAllCategories);
