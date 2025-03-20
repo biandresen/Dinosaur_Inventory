@@ -1,4 +1,8 @@
-import { getParentCategories, getSubCategories } from "../db/mockDatabase.js";
+import {
+  addNewCategory,
+  getParentCategories,
+  getSubCategories,
+} from "../db/mockDatabase.js";
 
 export const categoriesController = {
   getAllCategories: (req, res) => {
@@ -24,5 +28,10 @@ export const categoriesController = {
       title: "New Category",
       parentCategories,
     });
+  },
+  postNewCategory: (req, res) => {
+    const formData = req.body;
+    addNewCategory(formData);
+    res.redirect("/categories");
   },
 };

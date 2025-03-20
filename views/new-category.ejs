@@ -12,8 +12,8 @@
           </section>
           <section class="new-category-page__form-section">
             <form class="new-category-page__form" action="/categories/new-category" method="POST">
-              <label for="name">*Type of category:</label>
-              <select name="period" id="period" required>
+              <label for="parentCategory">*Parent Category:</label>
+              <select name="parentCategory" id="parentCategory" required>
                 <% locals.parentCategories.forEach(category => { %>
                   <option value="<%= category.name %>"><%= category.name %></option>
                   <%  }); %>

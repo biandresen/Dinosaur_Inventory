@@ -41,7 +41,7 @@ const mockDatabase = {
       parent_id: 1,
       name: "Jurassic",
       description: "Middle period of the Mesozoic era",
-      img_url: "jurassic.jpg",
+      img_url: "",
       created_at: new Date(),
     },
     {
@@ -49,7 +49,7 @@ const mockDatabase = {
       parent_id: 1,
       name: "Cretaceous",
       description: "Final period of the Mesozoic era",
-      img_url: "cretaceous.jpg",
+      img_url: "",
       created_at: new Date(),
     },
 
@@ -59,7 +59,7 @@ const mockDatabase = {
       parent_id: 2,
       name: "Herbivore",
       description: "Eats plants",
-      img_url: "herbivore.jpg",
+      img_url: "",
       created_at: new Date(),
     },
     {
@@ -67,7 +67,7 @@ const mockDatabase = {
       parent_id: 2,
       name: "Carnivore",
       description: "Eats meat",
-      img_url: "carnivore.jpg",
+      img_url: "",
       created_at: new Date(),
     },
     {
@@ -75,7 +75,7 @@ const mockDatabase = {
       parent_id: 2,
       name: "Omnivore",
       description: "Eats meat and plants",
-      img_url: "omnivore.jpg",
+      img_url: "",
       created_at: new Date(),
     },
 
@@ -85,7 +85,7 @@ const mockDatabase = {
       parent_id: 3,
       name: "Theropod",
       description: "Bipedal carnivores",
-      img_url: "theropod.jpg",
+      img_url: "",
       created_at: new Date(),
     },
     {
@@ -93,7 +93,7 @@ const mockDatabase = {
       parent_id: 3,
       name: "Sauropod",
       description: "Large quadrupedal herbivores",
-      img_url: "sauropod.jpg",
+      img_url: "",
       created_at: new Date(),
     },
 
@@ -103,7 +103,7 @@ const mockDatabase = {
       parent_id: 4,
       name: "Forest",
       description: "Densely wooded area",
-      img_url: "forest.jpg",
+      img_url: "",
       created_at: new Date(),
     },
     {
@@ -111,7 +111,7 @@ const mockDatabase = {
       parent_id: 4,
       name: "Plains",
       description: "Open grasslands",
-      img_url: "plains.jpg",
+      img_url: "",
       created_at: new Date(),
     },
     {
@@ -119,7 +119,7 @@ const mockDatabase = {
       parent_id: 4,
       name: "Jungle",
       description: "In the jungle",
-      img_url: "jungle.jpg",
+      img_url: "",
       created_at: new Date(),
     },
   ],
@@ -209,6 +209,25 @@ export function addNewDino(newDino) {
   };
 
   console.log("TREATED DINO: ", treatedDino);
-
   mockDatabase.dinosaur.push(treatedDino);
+}
+
+export function addNewCategory(newCategory) {
+  function getParentCategoryId(categoryName) {
+    const parentCategory = mockDatabase.category.find(
+      (pCat) => pCat.name === categoryName
+    );
+    return parentCategory.id;
+  }
+
+  const treatedCategory = {
+    id: mockDatabase.category.length + 1,
+    parent_id: getParentCategoryId(newCategory.parentCategory),
+    name: newCategory.name,
+    description: newCategory.description,
+    img_url: "",
+    created_at: new Date(),
+  };
+  console.log("TREATED CATEGORY: ", treatedCategory);
+  mockDatabase.category.push(treatedCategory);
 }

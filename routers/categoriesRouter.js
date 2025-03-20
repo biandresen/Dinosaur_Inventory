@@ -9,3 +9,5 @@ categoriesRouter.get(
 );
 categoriesRouter.get("/:id", categoriesController.getCategoriesById);
 categoriesRouter.get("/", categoriesController.getAllCategories);
+
+categoriesRouter.post("/new-category", categoriesController.postNewCategory);
