@@ -3,6 +3,7 @@ import { dinosaurController } from "../controllers/dinosaursController.js";
 import multer from "multer";
 import { fileURLToPath } from "url";
 import path from "path";
+import { notFoundHandler } from "../middlewares/notFound.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,3 +33,5 @@ dinosaursRouter.post(
   upload.single("image"),
   dinosaurController.postNewDino
 );
+
+dinosaursRouter.use(notFoundHandler);
