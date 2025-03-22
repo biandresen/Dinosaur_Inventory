@@ -6,6 +6,7 @@
     <div class="container">
       <main class="categories-page">
         <a class="button" href="/categories/new-category">New Category</a>
+        <div class="categories-page__category-container">
         <% if (locals.categories) {
           locals.categories.forEach(category => { %>
             <section class="categories-page__section">
@@ -15,12 +16,12 @@
               <h2 class="categories-page__heading">
                 <a class="categories-page__link" href="/categories/<%=category.id%>" title="Navigate to <%= category.name %> "> <%= category.name  %> </a>
               </h2>
-              <p class="categories-page__body"> <%= category.description%> </p>
             </section>
        <%   });
         } else { %>
           <h2 class="categories-page__error-heading">No categories found... Try again</h2>
      <% } %>
+        </div>
       </main>
     </div>
     <%- include("partials/footer.ejs") %>

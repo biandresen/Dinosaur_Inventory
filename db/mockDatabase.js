@@ -5,9 +5,9 @@ const mockDatabase = {
       name: "Period",
       description:
         "Explains the time period of when the respective dinosaur lived",
-      img_url: "period.png",
+      img_url: "period.jpg",
       created_at: new Date(),
-      parent_id: null, // No parent, this is a main category
+      parent_id: null,
     },
     {
       id: 2,
@@ -15,15 +15,15 @@ const mockDatabase = {
       description: "Explains what the respective dinosaur primarily ate",
       img_url: "diet.png",
       created_at: new Date(),
-      parent_id: null, // No parent, this is a main category
+      parent_id: null,
     },
     {
       id: 3,
       name: "Class",
       description: "Explains the physical classification type of the dinosaur",
-      img_url: "class.png",
+      img_url: "class.jpg",
       created_at: new Date(),
-      parent_id: null, // No parent, this is a main category
+      parent_id: null,
     },
     {
       id: 4,
@@ -32,7 +32,7 @@ const mockDatabase = {
         "Explains what kind of habitat or environment the respective dinosaur usually lived in and around",
       img_url: "habitat.png",
       created_at: new Date(),
-      parent_id: null, // No parent, this is a main category
+      parent_id: null,
     },
 
     // Subcategories for "Period"
@@ -49,6 +49,22 @@ const mockDatabase = {
       parent_id: 1,
       name: "Cretaceous",
       description: "Final period of the Mesozoic era",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 19,
+      parent_id: 1,
+      name: "Late Jurassic",
+      description: "Late stage of the Jurassic period",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 20,
+      parent_id: 1,
+      name: "Late Cretaceous",
+      description: "Late stage of the Cretaceous period",
       img_url: "",
       created_at: new Date(),
     },
@@ -78,10 +94,18 @@ const mockDatabase = {
       img_url: "",
       created_at: new Date(),
     },
+    {
+      id: 10,
+      parent_id: 2,
+      name: "Piscivorous",
+      description: "Eats mainly fish",
+      img_url: "",
+      created_at: new Date(),
+    },
 
     // Subcategories for "Class"
     {
-      id: 10,
+      id: 11,
       parent_id: 3,
       name: "Theropod",
       description: "Bipedal carnivores",
@@ -89,17 +113,49 @@ const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 11,
+      id: 12,
       parent_id: 3,
       name: "Sauropod",
       description: "Large quadrupedal herbivores",
       img_url: "",
       created_at: new Date(),
     },
+    {
+      id: 13,
+      parent_id: 3,
+      name: "Pterosaur",
+      description: "Flying reptiles",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 14,
+      parent_id: 3,
+      name: "Dromaeosaurid",
+      description: "Small, fast, and intelligent theropods",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 15,
+      parent_id: 3,
+      name: "Stegosaurid",
+      description: "Large herbivores with plated backs",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 16,
+      parent_id: 3,
+      name: "Ceratopsid",
+      description: "Horned dinosaurs with large frills",
+      img_url: "",
+      created_at: new Date(),
+    },
 
     // Subcategories for "Habitat"
     {
-      id: 12,
+      id: 17,
       parent_id: 4,
       name: "Forest",
       description: "Densely wooded area",
@@ -107,7 +163,7 @@ const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 13,
+      id: 18,
       parent_id: 4,
       name: "Plains",
       description: "Open grasslands",
@@ -115,10 +171,34 @@ const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 14,
+      id: 19,
       parent_id: 4,
       name: "Jungle",
       description: "In the jungle",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 20,
+      parent_id: 4,
+      name: "Desert",
+      description: "In the desert",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 21,
+      parent_id: 4,
+      name: "Coastal/Marine",
+      description: "Near oceans and coastlines",
+      img_url: "",
+      created_at: new Date(),
+    },
+    {
+      id: 22,
+      parent_id: 4,
+      name: "Semi-Arid",
+      description: "Dry, desert-like regions",
       img_url: "",
       created_at: new Date(),
     },
@@ -127,28 +207,86 @@ const mockDatabase = {
   dinosaur: [
     {
       id: 1,
-      name: "Tyrannosaurus Rex",
-      description: "Large carnivorous dinosaur",
-      weight_kg: 8000.0,
-      height_m: 3.6,
-      period_id: 5, // "Jurassic"
-      diet_id: 8, // "Carnivore"
-      class_id: 10, // "Theropod"
-      habitat_id: 12, // "Forest"
-      img_url: "uploads/t-rex.jpg",
+      name: "Brachiosaurus",
+      description:
+        "A gigantic, long-necked herbivore known for its towering height and front legs longer than its back legs.",
+      weight_kg: 56000,
+      height_m: 12,
+      period_id: 19, // Late Jurassic
+      diet_id: 7, // Herbivore
+      class_id: 12, // Sauropod
+      habitat_id: 17, // Forest
+      img_url: "uploads/brachiosaurus.jpg",
       created_at: new Date(),
     },
     {
       id: 2,
-      name: "Brachiosaurus",
-      description: "Tall herbivore dinosaur",
-      weight_kg: 56000.0,
-      height_m: 12.0,
-      period_id: 6, // "Cretaceous"
-      diet_id: 7, // "Herbivore"
-      class_id: 11, // "Sauropod"
-      habitat_id: 13, // "Plains"
-      img_url: "uploads/brachiosaurus.jpg",
+      name: "Pteranodon",
+      description:
+        "A large flying reptile with a wingspan of up to 7 meters and a distinctive crest on its head.",
+      weight_kg: 25,
+      height_m: 2,
+      period_id: 20,
+      diet_id: 10,
+      class_id: 13,
+      habitat_id: 21,
+      img_url: "uploads/pteranodon.jpg",
+      created_at: new Date(),
+    },
+    {
+      id: 3,
+      name: "Velociraptor",
+      description:
+        "A small, fast, and intelligent theropod with a sickle-shaped claw on each foot, likely used for hunting.",
+      weight_kg: 18,
+      height_m: 0.5,
+      period_id: 20,
+      diet_id: 8,
+      class_id: 11,
+      habitat_id: 22,
+      img_url: "uploads/velociraptor.jpeg",
+      created_at: new Date(),
+    },
+    {
+      id: 4,
+      name: "Stegosaurus",
+      description:
+        "A large herbivore with distinctive back plates and a spiked tail (thagomizer) used for defense.",
+      weight_kg: 5000,
+      height_m: 4,
+      period_id: 19,
+      diet_id: 7,
+      class_id: 15,
+      habitat_id: 17,
+      img_url: "uploads/stegosaurus.jpg",
+      created_at: new Date(),
+    },
+    {
+      id: 5,
+      name: "Triceratops",
+      description:
+        "A large quadrupedal herbivore with three facial horns and a large bony frill.",
+      weight_kg: 9000,
+      height_m: 3,
+      period_id: 20,
+      diet_id: 7,
+      class_id: 16,
+      habitat_id: 17,
+      img_url: "uploads/triceratops.jpg",
+      created_at: new Date(),
+    },
+    {
+      id: 6,
+      name: "Tyrannosaurus rex",
+      description:
+        "A massive carnivorous theropod with powerful jaws and sharp teeth, considered one of the most fearsome predators.",
+      weight_kg: 9000,
+      height_m: 4,
+      period_id: 20, // Late Cretaceous
+      diet_id: 8, // Carnivore
+      class_id: 11, // Theropod
+      habitat_id: 18, // Plains
+      img_url: "uploads/t-rex.jpeg",
       created_at: new Date(),
     },
   ],

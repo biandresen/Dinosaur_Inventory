@@ -5,6 +5,7 @@
     <%- include("partials/header.ejs") %>
     <div class="container">
       <main class="category-details">
+        <div class="category-details__wrapper">
         <% if (locals.parentCategory) { %>
           <section class="category-details-page__section">
             <img class="category-details-page__image" src="/images/<%= locals.parentCategory.img_url%>" alt="<%= locals.parentCategory.name %>">
@@ -26,6 +27,7 @@
       <%  } else { %>
         <h2 class="category-details-page__error-heading">No category information found... Try again</h2>
       <% } %>
+        </div>
       </main>
     </div>
     <%- include("partials/footer.ejs") %>

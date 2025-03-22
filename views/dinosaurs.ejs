@@ -6,7 +6,8 @@
     <div class="container">
       <main class="dino-page">
         <a class="button" href="/dinosaurs/new-dino">New Dino</a>
-        <% if (locals.dinosaurs) {
+        <div class="dino-page__dino-container">
+        <% if (locals.dinosaurs && locals.dinosaurs.length !== 0) {
           locals.dinosaurs.forEach(dinosaur => { %>
             <section class="dino-page__section">
               <a class="dino-page__link" href="/dinosaurs/<%=dinosaur.id%>" title="Navigate to <%= dinosaur.name %> ">
@@ -17,10 +18,12 @@
               </h2>
             </section>
        <%   });
-        } else { %>
+        } else if (locals.dinosaurs && locals.dinosaurs.length === 0) { %>
+          <h2 class="dino-page__error-heading">No dinosaurs in this category yet...</h2>
+      <%  } else { %>
           <h2 class="dino-page__error-heading">No dinosaurs found... Try again</h2>
      <% } %>
-
+        </div>
       </main>
     </div>
     <%- include("partials/footer.ejs") %>

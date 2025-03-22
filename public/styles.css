@@ -4,7 +4,7 @@
 /** GENERAL */
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -14,7 +14,7 @@ body {
   font-family: var(--font-family-primary);
 }
 main {
-  flex: 1;
+  /* flex: 1; */
 }
 .button {
   display: inline-block;
@@ -25,6 +25,7 @@ main {
   text-align: center;
   font-weight: var(--font-weight-semi-bold);
   margin-top: 15px;
+  height: 40px;
   font-size: var(--font-size-24px);
   color: black;
   border-style: none;
@@ -36,21 +37,22 @@ main {
 /** HEADER */
 header {
   width: 100%;
-  height: 90px;
+  height: 100%;
   background-color: var(--clr-secondary-dark);
 }
 .header__nav {
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 h1 {
-  font-size: var(--font-size-40px);
+  font-size: var(--font-size-32px);
   margin: 0 auto -13px auto;
 }
 .nav__list {
   margin: 0 auto;
   display: flex;
-  gap: var(--spacing-xxl);
+  gap: var(--spacing-xl);
 }
 .nav__item {
   list-style: none;
@@ -67,8 +69,11 @@ h1 {
   display: flex;
   flex-direction: column;
 }
-.homepage__section {
-  margin: 15px 0;
+.homepage__section1 {
+  margin: 30px 0 15px 0;
+}
+.homepage__section2 {
+  margin: 15px 0 30px 0;
 }
 .homepage__image {
   border-radius: var(--border-radius-m);
@@ -79,6 +84,10 @@ h1 {
 .homepage__heading {
   margin-top: -10px;
   margin-bottom: -10px;
+}
+.homepage__body {
+  font-size: var(--font-size-18px);
+  line-height: 20px;
 }
 .homepage__link {
   font-size: var(--font-size-40px);
@@ -117,6 +126,7 @@ h1 {
 }
 .categories-page__section {
   margin-top: 15px;
+  text-align: center;
 }
 .categories-page__section:last-child {
   margin-bottom: 15px;
@@ -235,7 +245,7 @@ h1 {
   flex-direction: column;
 }
 .new-dino-page__section {
-  margin-top: 15px;
+  margin: 30px 0 10px 0;
 }
 .new-dino-page__image {
   margin: 0 auto;
@@ -246,7 +256,7 @@ h1 {
 }
 .new-dino-page__heading {
   font-size: var(--font-size-40px);
-  margin-bottom: -10px;
+  margin: 5px 0 -10px 0;
 }
 .new-dino-page__body {
   font-size: var(--font-size-24px);
@@ -317,6 +327,7 @@ h1 {
 .new-category-page__form {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .new-category-page__form label {
   font-size: var(--font-size-24px);
@@ -372,7 +383,218 @@ footer {
   min-height: 45px;
   background-color: var(--clr-secondary-dark);
   display: flex;
+  justify-self: end;
 }
 .copyright {
   margin: auto;
+}
+
+@media (min-width: 362px) {
+  h1 {
+    font-size: var(--font-size-40px);
+  }
+}
+@media (min-width: 450px) {
+  .container {
+    max-width: 550px;
+  }
+  h1 {
+    font-size: var(--font-size-48px);
+    margin: -5px 0 -25px 0;
+    text-align: center;
+  }
+  .nav__link {
+    font-size: var(--font-size-32px);
+  }
+  .homepage__link {
+    font-size: var(--font-size-48px);
+  }
+  .homepage__body {
+    font-size: var(--font-size-24px);
+    line-height: 25px;
+  }
+  .dino-page__image {
+    max-width: 75%;
+  }
+  .categories-page__image {
+    max-width: 75%;
+  }
+  .sub-section__body {
+    font-size: var(--font-size-24px);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 850px;
+  }
+  .header__nav {
+    flex-direction: row;
+  }
+  h1 {
+    font-size: var(--font-size-48px);
+    margin: 0px;
+    align-self: center;
+  }
+  .nav__list {
+    align-items: center;
+    gap: var(--spacing-m);
+  }
+  .nav__link {
+    font-size: var(--font-size-32px);
+  }
+  .homepage__heading {
+    margin-bottom: -12px;
+  }
+  .homepage__body {
+    font-size: var(--font-size-32px);
+    line-height: 30px;
+  }
+  .dino-page {
+    display: block;
+  }
+  .dino-page__image {
+    min-width: 100%;
+  }
+  .dino-page__dino-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-l);
+    padding: 10px 0 20px 0;
+  }
+  .dino-page__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .categories-page {
+    display: block;
+  }
+  .categories-page__image {
+    min-width: 100%;
+  }
+  .categories-page__category-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-l);
+    padding: 10px 0 20px 0;
+  }
+  .categories-page__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .new-dino-page {
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .new-category-page {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .new-category-page__form-section {
+    margin-bottom: 0;
+  }
+  .new-category-page__form textarea {
+    height: 100%;
+  }
+  .category-details__wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .category-details-page__sub-section {
+    margin-bottom: 0;
+    overflow-y: auto;
+    min-width: 200px;
+    flex: 1;
+  }
+  .category-details-page__section {
+    margin-top: 30px;
+  }
+  .dino-details-page {
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .dino-details-page__section {
+    margin: 30px 0 30px 0;
+    max-width: 450px;
+  }
+  .dino-details-page__image {
+    margin: 0;
+  }
+  .dino-details-page__data-section {
+    min-width: 250px;
+    max-width: 350px;
+    flex: 1;
+    overflow-x: auto;
+    text-wrap-mode: nowrap;
+  }
+
+  footer {
+    font-size: var(--font-size-24px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+  .header__nav {
+    justify-content: space-between;
+  }
+  .nav__list {
+    margin: 0;
+    gap: var(--spacing-xl);
+  }
+  .homepage__image {
+    max-width: 800px;
+  }
+  .homepage__link {
+    max-width: 800px;
+  }
+  .homepage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+  .homepage__section:first-child {
+    grid-row: 1 / 4;
+    grid-column: 1 / 2;
+    padding: 35px 25px 30px 0;
+    margin: 0;
+  }
+  .homepage__section:last-child {
+    grid-row: 2 / 5;
+    grid-column: 2 / 3;
+    padding: 30px 0px 35px 25px;
+    margin: 0;
+  }
+  .dino-details-page__section {
+    max-width: 700px;
+  }
+  .new-dino-page__image {
+    max-width: 80%;
+    margin: 0 0 -5px 0;
+  }
+  .new-category-page__image {
+    max-width: 100%;
+    margin: 0 0 -5px 0;
+  }
+  .new-category-page__section {
+    max-width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  .new-category-page__heading,
+  .new-category-page__body {
+    align-self: start;
+  }
 }

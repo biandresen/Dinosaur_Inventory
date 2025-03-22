@@ -80,20 +80,9 @@ a:hover {
 /* Generic Container */
 .container {
   width: 100%;
-  flex: 1;
+  height: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    max-width: 100%;
-  }
+  flex: 1;
 }

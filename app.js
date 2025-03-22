@@ -15,9 +15,9 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // Routes
-app.use("/", indexRouter);
 app.use("/dinosaurs", dinosaursRouter);
 app.use("/categories", categoriesRouter);
+app.use("/", indexRouter);
 
 // Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
