@@ -74,10 +74,14 @@
 
               <label for="imageUpload">Change Image (optional):</label>
               <input type="file" id="imageUpload" name="image" accept="image/*">
-
-              <button type="submit" class="button form-button">Save Changes</button>
-              <button type="button" class="button form-button cancel-edit-button" id="cancelEdit">Cancel</button>
+              <div class="flex-row-wrapper">
+                <button type="submit" class="button form-button">Save Changes</button>
+                <button type="button" class="button form-button cancel-edit-button" id="cancelEdit">Cancel</button>
+              </div>
             </form>
+            <form class="new-dino-page__form" action="/dinosaurs/delete/<%= locals.dinosaur.id %>" method="POST">
+              <button type="submit" class="button form-button">Delete Dino</button>
+              </form>
           </section>
 
 

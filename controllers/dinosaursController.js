@@ -125,4 +125,23 @@ export const dinosaurController = {
 
     res.redirect(`/dinosaurs/${dinoId}`); // Redirect back to the details page
   },
+  deleteDino: (req, res) => {
+    const dinoId = Number(req.params.id);
+    console.log(dinoId);
+    // Find the index of the dinosaur
+    const dinoIndex = mockDatabase.dinosaur.findIndex(
+      (dino) => dino.id === dinoId
+    );
+
+    if (dinoIndex === -1) {
+      return res.status(404).send("Dinosaur not found");
+    }
+
+    // Remove the dinosaur from the array
+    mockDatabase.dinosaur.splice(dinoIndex, 1);
+
+    console.log(`Dinosaur with ID ${dinoId} deleted.`);
+
+    res.redirect("/dinosaurs"); // Redirect back to the list
+  },
 };

@@ -86,3 +86,8 @@ a:hover {
   padding: 0 20px;
   flex: 1;
 }
+
+.flex-row-wrapper {
+  display: flex;
+  gap: var(--spacing-m);
+}

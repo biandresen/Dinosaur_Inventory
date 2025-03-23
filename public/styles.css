@@ -32,6 +32,7 @@ main {
   display: flex;
   align-items: center;
   width: fit-content;
+  cursor: pointer;
 }
 .button:hover {
   background-color: var(--clr-button-dark-hover);
