@@ -1,4 +1,4 @@
-const mockDatabase = {
+export const mockDatabase = {
   category: [
     {
       id: 1,
@@ -322,6 +322,22 @@ export function getAllCategories() {
 
 export function getSubCategories(id) {
   return mockDatabase.category.filter((subCat) => subCat.parent_id === id);
+}
+
+export function getAllIndividualSubCategories() {
+  const categories = getAllCategories();
+  const subCategories = categories.filter((cat) => cat.parent_id !== null);
+
+  const periods = subCategories.filter((cat) => cat.parent_id === 1);
+  const diets = subCategories.filter((cat) => cat.parent_id === 2);
+  const classes = subCategories.filter((cat) => cat.parent_id === 3);
+  const habitats = subCategories.filter((cat) => cat.parent_id === 4);
+  return {
+    periods,
+    diets,
+    classes,
+    habitats,
+  };
 }
 
 export function addNewDino(newDino) {

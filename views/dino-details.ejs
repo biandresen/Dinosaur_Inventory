@@ -22,12 +22,83 @@
               <li class="data-section__item"><strong>Weight: </strong><span><%= locals.dinosaur.weight_kg %> kg</span></li>
               <li class="data-section__item"><strong>Height: </strong><span><%= locals.dinosaur.height_m %> m</span></li>
             </ul>
+            <button class="button edit-button edit-dino-button">Edit Dino</button>
           </section>
+
+          <!-- Hidden Form for Editing -->
+          <section class="new-dino-page__form-section" id="editFormSection" style="display: none;">
+            <form class="new-dino-page__form" action="/dinosaurs/edit/<%= locals.dinosaur.id %>" method="POST" enctype="multipart/form-data">
+              <label for="name">*Name:</label>
+              <input name="name" id="name" type="text" value="<%= locals.dinosaur.name %>" required>
+
+              <label for="period">*Period:</label>
+              <select name="period" id="period" required>
+                <% locals.periods.forEach(period => { %>
+                  <option value="<%= period.name %>" <%= period.name === locals.dinosaur.period ? "selected" : "" %>><%= period.name %></option>
+                <%  }); %>
+                <option value="">other</option>
+              </select>
+
+              <label for="diet">*Diet:</label>
+              <select name="diet" id="diet" required>
+                <% locals.diets.forEach(diet => { %>
+                  <option value="<%= diet.name %>" <%= diet.name === locals.dinosaur.diet ? "selected" : "" %>><%= diet.name %></option>
+                <%  }); %>
+                <option value="">other</option>
+              </select>
+
+              <label for="classType">*Class:</label>
+              <select name="classType" id="classType" required>
+                <% locals.classes.forEach(classType => { %>
+                  <option value="<%= classType.name %>" <%= classType.name === locals.dinosaur.class ? "selected" : "" %>><%= classType.name %></option>
+                <%  }); %>
+                <option value="">other</option>
+              </select>
+
+              <label for="habitat">*Habitat:</label>
+              <select name="habitat" id="habitat" required>
+                <% locals.habitats.forEach(habitat => { %>
+                  <option value="<%= habitat.name %>" <%= habitat.name === locals.dinosaur.habitat ? "selected" : "" %>><%= habitat.name %></option>
+                <%  }); %>
+                <option value="">other</option>
+              </select>
+
+              <label for="weight">Weight (kg):</label>
+              <input name="weight" id="weight" type="number" value="<%= locals.dinosaur.weight_kg %>">
+
+              <label for="height">Height (m):</label>
+              <input name="height" id="height" type="number" value="<%= locals.dinosaur.height_m %>">
+
+              <label for="description">*Description:</label>
+              <textarea name="description" id="description" required><%= locals.dinosaur.description %></textarea>
+
+              <label for="imageUpload">Change Image (optional):</label>
+              <input type="file" id="imageUpload" name="image" accept="image/*">
+
+              <button type="submit" class="button form-button">Save Changes</button>
+              <button type="button" class="button form-button cancel-edit-button" id="cancelEdit">Cancel</button>
+            </form>
+          </section>
+
+
       <%  } else { %>
         <h2 class="dino-details-page__error-heading">No dinosaur information found... Try again</h2>
       <% } %>
       </main>
     </div>
+    <script>
+      document.querySelector(".edit-dino-button").addEventListener("click", function() {
+      document.querySelector(".dino-details-page__data-section").style.display = "none"; // Hides the About section
+      this.style.display = "none"; // Hides the Edit button
+      document.getElementById("editFormSection").style.display = "block"; // Shows the edit form
+    });
+
+    document.getElementById("cancelEdit").addEventListener("click", function() {
+      document.getElementById("editFormSection").style.display = "none"; // Hides the edit form
+      document.querySelector(".dino-details-page__data-section").style.display = "block"; // Shows the About section again
+      document.querySelector(".edit-dino-button").style.display = "inline-block"; // Shows the Edit button again
+    });
+    </script>
     <%- include("partials/footer.ejs") %>
   </body>
 </html>

@@ -29,9 +29,16 @@ main {
   font-size: var(--font-size-24px);
   color: black;
   border-style: none;
+  display: flex;
+  align-items: center;
+  width: fit-content;
 }
 .button:hover {
   background-color: var(--clr-button-dark-hover);
+}
+.edit-button {
+  background-color: transparent;
+  border: 2px solid var(--clr-button-dark);
 }
 
 /** HEADER */

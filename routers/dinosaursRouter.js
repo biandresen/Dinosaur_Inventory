@@ -33,5 +33,10 @@ dinosaursRouter.post(
   upload.single("image"),
   dinosaurController.postNewDino
 );
+dinosaursRouter.post(
+  "/edit/:id",
+  upload.single("image"),
+  dinosaurController.editDino
+);
 
 dinosaursRouter.use(notFoundHandler);

@@ -2,6 +2,8 @@ import {
   getDinosaursWithDetails,
   getAllCategories,
   addNewDino,
+  getAllIndividualSubCategories,
+  mockDatabase,
 } from "../db/mockDatabase.js";
 
 export const dinosaurController = {
@@ -27,28 +29,24 @@ export const dinosaurController = {
     res.render("dinosaurs", { title: "Dinosaurs", dinosaurs });
   },
   getDinosaurById: (req, res) => {
+    const { periods, diets, classes, habitats } =
+      getAllIndividualSubCategories();
+
     const id = Number(req.params.id);
     const dinosaurs = getDinosaursWithDetails();
-    // console.log("DINOSAURS: ", dinosaurs);
     const dinosaur = dinosaurs.find((dino) => dino.id === id);
-    // console.log("DINOSAUR: ", dinosaur);
-    res.render("dino-details", { title: dinosaur.name, dinosaur });
+    res.render("dino-details", {
+      title: dinosaur.name,
+      dinosaur,
+      periods,
+      diets,
+      classes,
+      habitats,
+    });
   },
   getNewDinoForm: (req, res) => {
-    const categories = getAllCategories();
-    //TODO just use the getSubCategories-function instead
-    const subCategories = categories.filter((cat) => cat.parent_id !== null);
-    const periods = subCategories.filter((cat) => cat.parent_id === 1);
-    // console.log("Periods: ", periods);
-
-    const diets = subCategories.filter((cat) => cat.parent_id === 2);
-    // console.log("Diets: ", diets);
-
-    const classes = subCategories.filter((cat) => cat.parent_id === 3);
-    // console.log("Classes: ", classes);
-
-    const habitats = subCategories.filter((cat) => cat.parent_id === 4);
-    // console.log("Habitats: ", habitats);
+    const { periods, diets, classes, habitats } =
+      getAllIndividualSubCategories();
 
     res.render("new-dino", {
       title: "New Dino",
@@ -62,13 +60,11 @@ export const dinosaurController = {
     console.log("New dino form submitted!");
     const formData = req.body;
     const uploadedFile = req.file;
-    console.log(formData); // Form fields (text inputs, select options)
-    console.log(uploadedFile); // Uploaded file details
+    console.log(formData);
+    console.log(uploadedFile);
 
-    // Construct the image URL (relative to the public folder)
     const imgUrl = `uploads/${uploadedFile.filename}`;
 
-    // Create a new dinosaur object
     const newDino = {
       name: formData.name,
       period: formData.period,
@@ -81,10 +77,52 @@ export const dinosaurController = {
       img_url: imgUrl,
     };
 
-    // Save newDino to your database or an array (depending on your setup)
     console.log("New Dino:", newDino);
     addNewDino(newDino);
-    // Redirect back to the dinosaur list
     res.redirect("/dinosaurs");
+  },
+  editDino: (req, res) => {
+    const dinoId = Number(req.params.id);
+    const newDinoData = req.body;
+    console.log("Updating dino:", dinoId, newDinoData);
+
+    // Find the index of the dinosaur
+    const dinoIndex = mockDatabase.dinosaur.findIndex(
+      (dino) => dino.id === dinoId
+    );
+    if (dinoIndex === -1) {
+      return res.status(404).send("Dinosaur not found");
+    }
+
+    // Convert category names to IDs
+    function getCategoryId(categoryName) {
+      const category = mockDatabase.category.find(
+        (cat) => cat.name === categoryName
+      );
+      return category ? category.id : null;
+    }
+
+    // If no new image is uploaded, keep the old one
+    const existingDino = mockDatabase.dinosaur[dinoIndex];
+    const img_url =
+      req.file ? `uploads/${req.file.filename}` : existingDino.img_url;
+
+    // Update the dinosaur
+    mockDatabase.dinosaur[dinoIndex] = {
+      ...existingDino, // Preserve existing properties
+      name: newDinoData.name,
+      description: newDinoData.description,
+      weight_kg: newDinoData.weight,
+      height_m: newDinoData.height,
+      period_id: getCategoryId(newDinoData.period),
+      diet_id: getCategoryId(newDinoData.diet),
+      class_id: getCategoryId(newDinoData.classType),
+      habitat_id: getCategoryId(newDinoData.habitat),
+      img_url: img_url,
+    };
+
+    console.log("Updated dinosaur:", mockDatabase.dinosaur[dinoIndex]);
+
+    res.redirect(`/dinosaurs/${dinoId}`); // Redirect back to the details page
   },
 };
