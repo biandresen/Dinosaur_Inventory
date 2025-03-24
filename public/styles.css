@@ -10,10 +10,11 @@ body {
 }
 body {
   color: var(--clr-text);
-  background-color: var(--clr-bg);
+  background-color: var(--clr-bg-fallback);
+  background: var(--clr-bg);
   font-family: var(--font-family-primary);
   transition:
-    background-color 0.3s ease,
+    background 0.3s ease,
     color 0.3s ease;
 }
 img {
@@ -303,8 +304,12 @@ h1 {
   margin-bottom: 5px;
   border-radius: var(--border-radius-m);
   border-style: none;
-  background-color: var(--clr-bg);
+  background-color: var(--clr-bg-fallback);
+  background: var(--clr-bg);
   color: var(--clr-input-text);
+}
+option {
+  background: var(--clr-bg-fallback);
 }
 
 .new-dino-page__form select {
@@ -361,7 +366,8 @@ h1 {
   margin-bottom: 5px;
   border-radius: var(--border-radius-m);
   border-style: none;
-  background-color: var(--clr-bg);
+  background-color: var(--clr-bg-fallback);
+  background: var(--clr-bg);
   color: var(--clr-tertiary);
 }
 .new-category-page__form select {
@@ -379,7 +385,8 @@ h1 {
   text-indent: 10px;
   max-width: 110px;
   max-height: 30px;
-  background-color: var(--clr-bg);
+  background-color: var(--clr-bg-fallback);
+  background: var(--clr-bg);
   border-style: none;
   border-radius: var(--border-radius-2xl);
 }

@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap");
 :root {
   /* Colors: Dark mode */
-  --clr-bg: #2c3639;
+  --clr-bg: linear-gradient(135deg, #1e2527, #2c3639, #1e2527);
+  --clr-bg-fallback: #2c3639;
   --clr-primary: #3f4e4f;
   --clr-secondary: #3f4e4f;
   --clr-tertiary: #a27b5c;
@@ -62,7 +63,8 @@
 }
 
 .light-mode {
-  --clr-bg: #a59d84;
+  --clr-bg: linear-gradient(135deg, #7f785f, #a59d84, #7f785f);
+  --clr-bg-fallback: #a59d84;
   --clr-primary: #c1baa1;
   --clr-secondary: #c1baa1;
   --clr-tertiary: #d7d3bf;
