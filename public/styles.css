@@ -9,17 +9,21 @@ body {
   flex-direction: column;
 }
 body {
-  color: var(--clr-text-dark);
-  background-color: var(--clr-bg-dark);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
   font-family: var(--font-family-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
-main {
-  /* flex: 1; */
+img {
+  box-shadow: 3px 3px 5px var(--clr-shadow);
 }
 .button {
+  box-shadow: 1px 1px 5px var(--clr-shadow);
   display: flex;
   padding: var(--spacing-xs) var(--spacing-m);
-  background-color: var(--clr-button-dark);
+  background-color: var(--clr-button);
   border-radius: var(--border-radius-2xl);
   text-decoration: none;
   text-align: center;
@@ -27,18 +31,18 @@ main {
   margin-top: 15px;
   height: 40px;
   font-size: var(--font-size-24px);
-  color: black;
+  color: var(--clr-button-text);
   border-style: none;
   align-items: center;
   width: fit-content;
   cursor: pointer;
 }
 .button:hover {
-  background-color: var(--clr-button-dark-hover);
+  background-color: var(--clr-button-hover);
 }
 .edit-button {
   background-color: transparent;
-  border: 2px solid var(--clr-button-dark);
+  border: 2px solid var(--clr-button);
   margin-bottom: 20px;
 }
 
@@ -46,7 +50,7 @@ main {
 header {
   width: 100%;
   height: 100%;
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-secondary);
 }
 .header__nav {
   height: 100%;
@@ -60,7 +64,7 @@ h1 {
 .nav__list {
   margin: 0 auto;
   display: flex;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-m);
 }
 .nav__item {
   list-style: none;
@@ -70,6 +74,13 @@ h1 {
 }
 .nav__link:hover {
   text-decoration: underline;
+}
+#themeToggle {
+  background-color: transparent;
+  border-style: none;
+  font-size: var(--font-size-24px);
+  color: var(--clr-text);
+  cursor: pointer;
 }
 
 /** HOMEPAGE */
@@ -87,7 +98,7 @@ h1 {
   border-radius: var(--border-radius-m);
   height: auto;
   width: 100%;
-  background-color: var(--clr-tertiary-dark);
+  background-color: var(--clr-tertiary);
 }
 .homepage__heading {
   margin-top: -10px;
@@ -184,7 +195,7 @@ h1 {
   border-radius: var(--spacing-m);
   margin: 30px 0;
   padding: 5px 15px;
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-secondary);
 }
 .data-section__header {
   font-size: var(--font-size-40px);
@@ -236,7 +247,7 @@ h1 {
   border-radius: var(--spacing-m);
   margin: 30px 0;
   padding: 10px 15px;
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-secondary);
 }
 .sub-section__header {
   font-size: var(--font-size-32px);
@@ -271,7 +282,7 @@ h1 {
   line-height: var(--spacing-ml);
 }
 .new-dino-page__form-section {
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-secondary);
   border-radius: var(--spacing-m);
   margin: 30px 0;
   padding: 15px 18px;
@@ -292,9 +303,10 @@ h1 {
   margin-bottom: 5px;
   border-radius: var(--border-radius-m);
   border-style: none;
-  background-color: var(--clr-bg-dark);
-  color: var(--clr-tertiary-dark);
+  background-color: var(--clr-bg);
+  color: var(--clr-input-text);
 }
+
 .new-dino-page__form select {
   padding: 3px;
 }
@@ -327,7 +339,7 @@ h1 {
   line-height: var(--spacing-ml);
 }
 .new-category-page__form-section {
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-secondary);
   border-radius: var(--spacing-m);
   margin: 30px 0;
   padding: 15px 18px;
@@ -349,8 +361,8 @@ h1 {
   margin-bottom: 5px;
   border-radius: var(--border-radius-m);
   border-style: none;
-  background-color: var(--clr-bg-dark);
-  color: var(--clr-tertiary-dark);
+  background-color: var(--clr-bg);
+  color: var(--clr-tertiary);
 }
 .new-category-page__form select {
   padding: 3px;
@@ -367,7 +379,7 @@ h1 {
   text-indent: 10px;
   max-width: 110px;
   max-height: 30px;
-  background-color: var(--clr-bg-dark);
+  background-color: var(--clr-bg);
   border-style: none;
   border-radius: var(--border-radius-2xl);
 }
@@ -391,7 +403,7 @@ h1 {
   height: auto;
   width: 100%;
   border-radius: 100%;
-  border: 5px solid var(--clr-button-dark);
+  border: 5px solid var(--clr-button);
 }
 .page-404__heading {
   font-size: var(--font-size-72px);
@@ -412,7 +424,7 @@ footer {
   font-size: var(--font-size-18px);
   width: 100%;
   min-height: 45px;
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-secondary);
   display: flex;
   justify-self: end;
 }

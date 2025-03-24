@@ -1,4 +1,26 @@
-//* DINO DETAILS PAGE
+//* LIGHT/DARK-MODE
+const themeToggle = document.getElementById("themeToggle");
+
+// Check for saved theme preference
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light-mode");
+}
+
+// Toggle theme on button click
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+  themeToggle.textContent =
+    themeToggle.textContent === "Light" ? "Dark" : "Light";
+
+  // Save preference to localStorage
+  if (document.body.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
+});
+
+//* DINO DETAILS PAGE (authentification)
 const dataSection = document.querySelector(".dino-details-page__data-section");
 const editDinoButton = document.querySelector(".edit-dino-button");
 const editFormSection = document.getElementById("editFormSection");

@@ -1,24 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap");
 :root {
   /* Colors: Dark mode */
-  --clr-bg-dark: #342c2a;
-  --clr-primary-dark: #504444;
-  --clr-secondary-dark: #504444;
-  --clr-tertiary-dark: #fe7332;
-  --clr-button-dark: #fe7332;
-  --clr-button-dark-hover: #fd8953;
-  --clr-text-dark: #ffd363;
-  --clr-shadow-dark: rgb(40, 40, 40);
-
-  /* Colors: Light mode */
-  --clr-bg-light: #f4f1f0;
-  --clr-primary-light: #6f5d5a;
-  --clr-secondary-light: #6f5d5a;
-  --clr-tertiary-light: #fe8a50;
-  --clr-button-light: #f4c1a1;
-  --clr-button-light-hover: #eca67a;
-  --clr-text-light: #3d3d3d;
-  --clr-shadow-light: rgba(0, 0, 0, 0.1);
+  --clr-bg: #2c3639;
+  --clr-primary: #3f4e4f;
+  --clr-secondary: #3f4e4f;
+  --clr-tertiary: #a27b5c;
+  --clr-button: #a27b5c;
+  --clr-button-hover: #b28d6f;
+  --clr-text: #dcd7c9;
+  --clr-label-text: hsl(27, 30%, 67%);
+  --clr-button-text: rgb(10, 10, 10);
+  --clr-shadow: #1e2527;
 
   /* Typography */
   --font-family-primary: "Markazi Text", sans-serif;
@@ -69,9 +61,22 @@
   --breakpoint-xl: 1440px;
 }
 
+.light-mode {
+  --clr-bg: #a59d84;
+  --clr-primary: #c1baa1;
+  --clr-secondary: #c1baa1;
+  --clr-tertiary: #d7d3bf;
+  --clr-button: #d9b27f;
+  --clr-button-hover: hsl(34, 54%, 72%);
+  --clr-text: rgb(30, 30, 30);
+  --clr-input-text: rgb(10, 10, 10);
+  --clr-button-text: rgb(10, 10, 10);
+  --clr-shadow: hsl(45, 15%, 38%);
+}
+
 a {
   text-decoration: none;
-  color: var(--clr-text-dark);
+  color: var(--clr-text);
 }
 a:hover {
   cursor: pointer;
