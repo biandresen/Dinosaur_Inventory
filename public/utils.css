@@ -89,5 +89,6 @@ a:hover {
 
 .flex-row-wrapper {
   display: flex;
+  align-items: center;
   gap: var(--spacing-m);
 }

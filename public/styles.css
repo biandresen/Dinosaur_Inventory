@@ -17,7 +17,7 @@ main {
   /* flex: 1; */
 }
 .button {
-  display: inline-block;
+  display: flex;
   padding: var(--spacing-xs) var(--spacing-m);
   background-color: var(--clr-button-dark);
   border-radius: var(--border-radius-2xl);
@@ -29,7 +29,6 @@ main {
   font-size: var(--font-size-24px);
   color: black;
   border-style: none;
-  display: flex;
   align-items: center;
   width: fit-content;
   cursor: pointer;
@@ -40,6 +39,7 @@ main {
 .edit-button {
   background-color: transparent;
   border: 2px solid var(--clr-button-dark);
+  margin-bottom: 20px;
 }
 
 /** HEADER */
@@ -287,7 +287,7 @@ h1 {
 .new-dino-page__form input,
 .new-dino-page__form textarea,
 .new-dino-page__form select {
-  text-indent: 8px;
+  padding-left: 10px;
   font-size: var(--font-size-24px);
   margin-bottom: 5px;
   border-radius: var(--border-radius-m);
@@ -354,6 +354,29 @@ h1 {
 }
 .new-category-page__form select {
   padding: 3px;
+}
+
+.password-form {
+  padding: 0px 5px 20px 0;
+}
+.password-label {
+  font-size: var(--font-size-24px);
+}
+.password-input {
+  font-size: var(--font-size-40px);
+  text-indent: 10px;
+  max-width: 110px;
+  max-height: 30px;
+  background-color: var(--clr-bg-dark);
+  border-style: none;
+  border-radius: var(--border-radius-2xl);
+}
+.confirm-password-button {
+  margin: 0;
+}
+.wrong-password-message {
+  font-size: var(--font-size-24px);
+  font-weight: var(--font-weight-bold);
 }
 
 /** 404-PAGE  */

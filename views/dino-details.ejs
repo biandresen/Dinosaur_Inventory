@@ -23,6 +23,18 @@
               <li class="data-section__item"><strong>Height: </strong><span><%= locals.dinosaur.height_m %> m</span></li>
             </ul>
             <button class="button edit-button edit-dino-button">Edit Dino</button>
+            <!-- Initially hidden -->
+            <div class="password-form-wrapper" style="display: none;">
+              <form class="password-form">
+                <label class="password-label" for="password">Password:</label>
+                <div class="flex-row-wrapper">
+                  <input class="password-input" type="password">
+                  <button class="confirm-password-button button" type="submit">Confirm</button>
+                </div>
+                <p class="wrong-password-message" style="display: none;">Wrong password!</p>
+              </form>
+            </div>
+
           </section>
 
           <!-- Hidden Form for Editing -->
@@ -90,19 +102,7 @@
       <% } %>
       </main>
     </div>
-    <script>
-      document.querySelector(".edit-dino-button").addEventListener("click", function() {
-      document.querySelector(".dino-details-page__data-section").style.display = "none"; // Hides the About section
-      this.style.display = "none"; // Hides the Edit button
-      document.getElementById("editFormSection").style.display = "block"; // Shows the edit form
-    });
-
-    document.getElementById("cancelEdit").addEventListener("click", function() {
-      document.getElementById("editFormSection").style.display = "none"; // Hides the edit form
-      document.querySelector(".dino-details-page__data-section").style.display = "block"; // Shows the About section again
-      document.querySelector(".edit-dino-button").style.display = "inline-block"; // Shows the Edit button again
-    });
-    </script>
     <%- include("partials/footer.ejs") %>
+    <script src="/script.js"></script>
   </body>
 </html>
