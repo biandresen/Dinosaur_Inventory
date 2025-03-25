@@ -53,7 +53,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 19,
+      id: 7,
       parent_id: 1,
       name: "Late Jurassic",
       description: "Late stage of the Jurassic period",
@@ -61,7 +61,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 20,
+      id: 8,
       parent_id: 1,
       name: "Late Cretaceous",
       description: "Late stage of the Cretaceous period",
@@ -71,7 +71,7 @@ export const mockDatabase = {
 
     // Subcategories for "Diet"
     {
-      id: 7,
+      id: 9,
       parent_id: 2,
       name: "Herbivore",
       description: "Eats plants",
@@ -79,7 +79,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 8,
+      id: 10,
       parent_id: 2,
       name: "Carnivore",
       description: "Eats meat",
@@ -87,7 +87,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 9,
+      id: 11,
       parent_id: 2,
       name: "Omnivore",
       description: "Eats meat and plants",
@@ -95,7 +95,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 10,
+      id: 12,
       parent_id: 2,
       name: "Piscivorous",
       description: "Eats mainly fish",
@@ -105,7 +105,7 @@ export const mockDatabase = {
 
     // Subcategories for "Class"
     {
-      id: 11,
+      id: 13,
       parent_id: 3,
       name: "Theropod",
       description: "Bipedal carnivores",
@@ -113,7 +113,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 12,
+      id: 14,
       parent_id: 3,
       name: "Sauropod",
       description: "Large quadrupedal herbivores",
@@ -121,7 +121,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 13,
+      id: 15,
       parent_id: 3,
       name: "Pterosaur",
       description: "Flying reptiles",
@@ -129,7 +129,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 14,
+      id: 16,
       parent_id: 3,
       name: "Dromaeosaurid",
       description: "Small, fast, and intelligent theropods",
@@ -137,7 +137,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 15,
+      id: 17,
       parent_id: 3,
       name: "Stegosaurid",
       description: "Large herbivores with plated backs",
@@ -145,7 +145,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 16,
+      id: 18,
       parent_id: 3,
       name: "Ceratopsid",
       description: "Horned dinosaurs with large frills",
@@ -155,7 +155,7 @@ export const mockDatabase = {
 
     // Subcategories for "Habitat"
     {
-      id: 17,
+      id: 19,
       parent_id: 4,
       name: "Forest",
       description: "Densely wooded area",
@@ -163,7 +163,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 18,
+      id: 20,
       parent_id: 4,
       name: "Plains",
       description: "Open grasslands",
@@ -171,7 +171,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 19,
+      id: 21,
       parent_id: 4,
       name: "Jungle",
       description: "In the jungle",
@@ -179,7 +179,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 20,
+      id: 22,
       parent_id: 4,
       name: "Desert",
       description: "In the desert",
@@ -187,7 +187,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 21,
+      id: 23,
       parent_id: 4,
       name: "Coastal/Marine",
       description: "Near oceans and coastlines",
@@ -195,7 +195,7 @@ export const mockDatabase = {
       created_at: new Date(),
     },
     {
-      id: 22,
+      id: 24,
       parent_id: 4,
       name: "Semi-Arid",
       description: "Dry, desert-like regions",
