@@ -38,21 +38,24 @@ export const dinosaurController = {
     res.render("dinosaurs", { title: "Dinosaurs", dinosaurs });
   },
 
-  // getDinosaurById: async (req, res) => {
-  //   const { periods, diets, classes, habitats } = await db.getSubCategories();
+  getDinoById: async (req, res) => {
+    const id = req.params.id;
+    if (!id) return;
 
-  //   const id = Number(req.params.id);
-  //   const dinosaurs = getDinosaursWithDetails();
-  //   const dinosaur = dinosaurs.find((dino) => dino.id === id);
-  //   res.render("dino-details", {
-  //     title: dinosaur.name,
-  //     dinosaur,
-  //     periods,
-  //     diets,
-  //     classes,
-  //     habitats,
-  //   });
-  // },
+    const dinosaur = await db.selectDinoById(id);
+
+    const subCategories = await db.selectAllSubCategories();
+    const { periods, diets, classes, habitats } = subCategories;
+
+    res.render("dino-details", {
+      title: `${dinosaur.name}`,
+      dinosaur,
+      periods,
+      diets,
+      classes,
+      habitats,
+    });
+  },
   // getNewDinoForm: async (req, res) => {
   //   const { periods, diets, classes, habitats } = await db.getSubCategories();
 

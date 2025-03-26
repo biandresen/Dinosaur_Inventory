@@ -647,4 +647,11 @@ footer {
   .new-category-page__body {
     align-self: start;
   }
+  .sub-section__body {
+    line-height: 23px;
+    margin: 5px 0;
+  }
+  .category-details-page__section {
+    max-width: 750px;
+  }
 }
