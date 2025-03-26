@@ -24,7 +24,7 @@ const upload = multer({ storage }); // Store uploaded files in the "uploads"
 
 export const dinosaursRouter = Router();
 
-// dinosaursRouter.get("/new-dino", dinosaurController.getNewDinoForm);
+dinosaursRouter.get("/new-dino", dinosaurController.getNewDinoForm);
 dinosaursRouter.get("/:id", dinosaurController.getDinoById);
 dinosaursRouter.get("/", dinosaurController.getDinos);
 

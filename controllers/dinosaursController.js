@@ -56,17 +56,19 @@ export const dinosaurController = {
       habitats,
     });
   },
-  // getNewDinoForm: async (req, res) => {
-  //   const { periods, diets, classes, habitats } = await db.getSubCategories();
+  getNewDinoForm: async (req, res) => {
+    const { periods, diets, classes, habitats } =
+      await db.selectAllSubCategories();
 
-  //   res.render("new-dino", {
-  //     title: "New Dino",
-  //     periods,
-  //     diets,
-  //     classes,
-  //     habitats,
-  //   });
-  // },
+    res.render("new-dino", {
+      title: "New Dino",
+      periods,
+      diets,
+      classes,
+      habitats,
+    });
+  },
+
   // postNewDino: (req, res) => {
   //   console.log("New dino form submitted!");
   //   const formData = req.body;
