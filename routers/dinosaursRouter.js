@@ -24,20 +24,20 @@ const upload = multer({ storage }); // Store uploaded files in the "uploads"
 
 export const dinosaursRouter = Router();
 
-dinosaursRouter.get("/new-dino", dinosaurController.getNewDinoForm);
-dinosaursRouter.get("/:id", dinosaurController.getDinosaurById);
-dinosaursRouter.get("/", dinosaurController.getDinosaurs);
+// dinosaursRouter.get("/new-dino", dinosaurController.getNewDinoForm);
+// dinosaursRouter.get("/:id", dinosaurController.getDinosaurById);
+dinosaursRouter.get("/", dinosaurController.getDinos);
 
-dinosaursRouter.post(
-  "/new-dino",
-  upload.single("image"),
-  dinosaurController.postNewDino
-);
-dinosaursRouter.post(
-  "/edit/:id",
-  upload.single("image"),
-  dinosaurController.editDino
-);
-dinosaursRouter.post("/delete/:id", dinosaurController.deleteDino);
+// dinosaursRouter.post(
+//   "/new-dino",
+//   upload.single("image"),
+//   dinosaurController.postNewDino
+// );
+// dinosaursRouter.post(
+//   "/edit/:id",
+//   upload.single("image"),
+//   dinosaurController.editDino
+// );
+// dinosaursRouter.post("/delete/:id", dinosaurController.deleteDino);
 
 dinosaursRouter.use(notFoundHandler);

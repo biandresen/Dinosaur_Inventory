@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "node --watch app.js"
+    "dev": "node --watch app.js",
+    "createData": "node db/runAllDbScripts.js"
   },
   "repository": {
     "type": "git",

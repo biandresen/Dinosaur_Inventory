@@ -1,38 +1,30 @@
 import { pool } from "./pool.js";
+const dinosaurTable = "dinosaur";
+const categoryTable = "category";
 
 export const db = {
-  getAllMessages: async () => {
-    let queryText = "SELECT * FROM messages";
+  selectDinos: async (filter) => {
+    let queryText = `SELECT * FROM ${dinosaurTable}`;
+    const queryParams = [];
+
+    if (filter && Object.keys(filter).length !== 0) {
+      console.log("DB Filter not empty");
+
+      queryText = `SELECT ${dinosaurTable} . * FROM ${dinosaurTable} JOIN ${categoryTable} ON ${dinosaurTable}.${filter.key}_id = ${categoryTable}.id WHERE ${categoryTable}.name ILIKE $1`;
+      queryParams.push(`%${filter.value}%`); // Add % to handle partial matching with ILIKE
+    }
 
     try {
-      const result = await pool.query(queryText);
+      const result = await pool.query(queryText, queryParams);
       return result.rows;
     } catch (error) {
-      console.error("Error executing query", error.stack);
-      return "Error executing query";
+      console.error("Error in query:", error);
+      throw error;
     }
   },
-  createMessage: async (text, username) => {
-    let queryText =
-      "INSERT INTO messages (text, username) VALUES ($1, $2) RETURNING *";
 
-    try {
-      const result = await pool.query(queryText, [text, username]);
-      return result.rows[0];
-    } catch (error) {
-      console.error("Error executing query", error.stack);
-      return "Error executing query";
-    }
-  },
-  getMessageById: async (id) => {
-    let queryText = "SELECT * FROM messages WHERE id = $1";
-    try {
-      const result = await pool.query(queryText, [id]);
-      console.log(result);
-      return result.rows[0];
-    } catch (error) {
-      console.error("Error executing query", error.stack);
-      return "Error executing query";
-    }
-  },
+  // getSubCategories: async () => {
+  //   let queryText = `SELECT * FROM ${categoryTable} WHERE parent_id IS NOT NULL`;
+  //   pool.query(queryText);
+  // },
 };

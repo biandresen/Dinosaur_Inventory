@@ -3,6 +3,17 @@ import "dotenv/config";
 const { Client } = pkg;
 
 const SQL_1 = `
+CREATE TABLE category (
+  id SERIAL PRIMARY KEY,
+  parent_id INTEGER REFERENCES category(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  img_url VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+`;
+
+const SQL_2 = `
 CREATE TABLE dinosaur (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -18,18 +29,7 @@ CREATE TABLE dinosaur (
 );
 `;
 
-const SQL_2 = `
-CREATE TABLE category (
-  id SERIAL PRIMARY KEY,
-  parent_id INTEGER REFERENCES category(id) ON DELETE CASCADE,
-  name VARCHAR(255) NOT NULL,
-  description TEXT,
-  img_url VARCHAR(255),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-`;
-
-async function main() {
+export async function populateDb() {
   console.log("Seeding database...");
 
   const client = new Client({
@@ -40,12 +40,12 @@ async function main() {
     await client.connect();
 
     // Drop tables if they exist
-    await client.query("DROP TABLE IF EXISTS dinosaur CASCADE");
     await client.query("DROP TABLE IF EXISTS category CASCADE");
+    await client.query("DROP TABLE IF EXISTS dinosaur CASCADE");
 
     // Create tables
-    await client.query(SQL_2); // Create category first
-    await client.query(SQL_1); // Then create dinosaur
+    await client.query(SQL_1);
+    await client.query(SQL_2);
 
     console.log("Database seeded successfully!");
   } catch (err) {
@@ -55,4 +55,4 @@ async function main() {
   }
 }
 
-main();
+// populateDb();

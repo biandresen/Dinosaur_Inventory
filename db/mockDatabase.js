@@ -212,10 +212,10 @@ export const mockDatabase = {
         "A gigantic, long-necked herbivore known for its towering height and front legs longer than its back legs.",
       weight_kg: 56000,
       height_m: 12,
-      period_id: 19, // Late Jurassic
-      diet_id: 7, // Herbivore
-      class_id: 12, // Sauropod
-      habitat_id: 17, // Forest
+      period_id: 7, // Late Jurassic
+      diet_id: 9, // Herbivore
+      class_id: 14, // Sauropod
+      habitat_id: 19, // Forest
       img_url: "uploads/brachiosaurus.jpg",
       created_at: new Date(),
     },
@@ -226,10 +226,10 @@ export const mockDatabase = {
         "A large flying reptile with a wingspan of up to 7 meters and a distinctive crest on its head.",
       weight_kg: 25,
       height_m: 2,
-      period_id: 20,
-      diet_id: 10,
-      class_id: 13,
-      habitat_id: 21,
+      period_id: 6, //Cretaceous
+      diet_id: 12, //Piscivorous
+      class_id: 15, //Pterosaur
+      habitat_id: 23, //Coastal/Marine
       img_url: "uploads/pteranodon.jpg",
       created_at: new Date(),
     },
@@ -240,10 +240,10 @@ export const mockDatabase = {
         "A small, fast, and intelligent theropod with a sickle-shaped claw on each foot, likely used for hunting.",
       weight_kg: 18,
       height_m: 0.5,
-      period_id: 20,
-      diet_id: 8,
-      class_id: 11,
-      habitat_id: 22,
+      period_id: 8, //Late Cretaceous
+      diet_id: 10, //Carnivore
+      class_id: 16, //Dromaeosaurid
+      habitat_id: 22, //Desert
       img_url: "uploads/velociraptor.jpeg",
       created_at: new Date(),
     },
@@ -254,10 +254,10 @@ export const mockDatabase = {
         "A large herbivore with distinctive back plates and a spiked tail (thagomizer) used for defense.",
       weight_kg: 5000,
       height_m: 4,
-      period_id: 19,
-      diet_id: 7,
-      class_id: 15,
-      habitat_id: 17,
+      period_id: 5, //Jurassic
+      diet_id: 9, //Herbivore
+      class_id: 17, //Stegosaurid
+      habitat_id: 20, //Plains
       img_url: "uploads/stegosaurus.jpg",
       created_at: new Date(),
     },
@@ -268,10 +268,10 @@ export const mockDatabase = {
         "A large quadrupedal herbivore with three facial horns and a large bony frill.",
       weight_kg: 9000,
       height_m: 3,
-      period_id: 20,
-      diet_id: 7,
-      class_id: 16,
-      habitat_id: 17,
+      period_id: 8, //Late Cretaceous
+      diet_id: 9, //Herbivore
+      class_id: 18, //Ceratopsid
+      habitat_id: 19, //Forest
       img_url: "uploads/triceratops.jpg",
       created_at: new Date(),
     },
@@ -282,10 +282,10 @@ export const mockDatabase = {
         "A massive carnivorous theropod with powerful jaws and sharp teeth, considered one of the most fearsome predators.",
       weight_kg: 9000,
       height_m: 4,
-      period_id: 20, // Late Cretaceous
-      diet_id: 8, // Carnivore
-      class_id: 11, // Theropod
-      habitat_id: 18, // Plains
+      period_id: 8, // Late Cretaceous
+      diet_id: 10, // Carnivore
+      class_id: 13, // Theropod
+      habitat_id: 21, // Jungle
       img_url: "uploads/t-rex.jpeg",
       created_at: new Date(),
     },

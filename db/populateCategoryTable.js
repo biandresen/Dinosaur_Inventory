@@ -28,7 +28,7 @@ VALUES
 (${parentId}, 'Herbivore', 'Dinosaurs that primarily ate plants, such as ferns, trees, and shrubs.', ''),
 (${parentId}, 'Carnivore', 'Dinosaurs that hunted and consumed meat, including other dinosaurs and small animals.', ''),
 (${parentId}, 'Omnivore', 'Dinosaurs that ate both plants and animals, allowing them to adapt to a wider range of environments.', ''),
-(${parentId}, 'Piscivorous', 'Dinosaurs that primarily ate fish, often found in aquatic or coastal environments.', '');
+(${parentId}, 'Piscivore', 'Dinosaurs that primarily ate fish, often found in aquatic or coastal environments.', '');
 `;
 
 const insertClassCategories = (parentId) => `
@@ -53,8 +53,8 @@ VALUES
 (${parentId}, 'Semi-Arid', 'Dry regions that are not as extreme as deserts, often with sparse vegetation and seasonal rainfall.', '');
 `;
 
-async function seedCategories() {
-  console.log("Seeding database...");
+export async function seedCategories() {
+  console.log("Seeding categories...");
 
   const client = new Client({
     connectionString: `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@localhost:5432/dino_inventory`,
@@ -104,4 +104,4 @@ async function seedCategories() {
   }
 }
 
-seedCategories();
+// seedCategories();

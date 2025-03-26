@@ -15,7 +15,7 @@
           <section class="category-details-page__sub-section">
             <% if (locals.subCategories) {
               locals.subCategories.forEach(subCategory => { %>
-              <a href="/dinosaurs?<%= parentCategory.name %>=<%= subCategory.name %>">
+              <a href="/dinosaurs?key=<%= parentCategory.name %>&value=<%= subCategory.name %>">
                 <h3 class="sub-section__header"> <%= subCategory.name %> </h3>
               </a>
               <p class="sub-section__body"> <%= subCategory.description %> </p>
