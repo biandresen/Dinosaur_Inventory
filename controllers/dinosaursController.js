@@ -67,7 +67,6 @@ export const dinosaurController = {
       habitats,
     });
   },
-
   postNewDino: async (req, res) => {
     console.log("New dino form submitted!");
     const formData = req.body;
@@ -101,7 +100,6 @@ export const dinosaurController = {
       res.status(500).send("Error adding dinosaur");
     }
   },
-
   editDino: async (req, res) => {
     console.log("Dino edit submitted!");
     const dinoId = req.params.id;

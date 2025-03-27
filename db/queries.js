@@ -160,4 +160,17 @@ export const db = {
     const result = await pool.query(queryText, queryParams);
     return result.rows[0].id;
   },
+  insertSubCategory: async (newCategory) => {
+    const queryText = `INSERT INTO ${categoryTable} (parent_id, name, description, img_url)
+                       VALUES ($1, $2, $3, $4)
+                       RETURNING *;`;
+    const queryParams = [
+      newCategory.parentCategory,
+      newCategory.name,
+      newCategory.description,
+      "",
+    ];
+    const result = await pool.query(queryText, queryParams);
+    return result.rows[0];
+  },
 };

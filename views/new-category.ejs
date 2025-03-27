@@ -15,7 +15,7 @@
               <label for="parentCategory">*Parent Category:</label>
               <select name="parentCategory" id="parentCategory" required>
                 <% locals.parentCategories.forEach(category => { %>
-                  <option value="<%= category.name %>"><%= category.name %></option>
+                  <option value="<%= category.id %>"><%= category.name %></option>
                   <%  }); %>
               </select>
               <label for="name">*Name:</label>

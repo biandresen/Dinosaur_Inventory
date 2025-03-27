@@ -48,7 +48,6 @@
                 <% locals.periods.forEach(period => { %>
                   <option value="<%= period.id %>" <%= period.name === locals.dinosaur.period ? "selected" : "" %>><%= period.name %></option>
                 <%  }); %>
-                <option value="">other</option>
               </select>
 
               <label for="diet">*Diet:</label>
@@ -56,7 +55,6 @@
                 <% locals.diets.forEach(diet => { %>
                   <option value="<%= diet.id %>" <%= diet.name === locals.dinosaur.diet ? "selected" : "" %>><%= diet.name %></option>
                 <%  }); %>
-                <option value="">other</option>
               </select>
 
               <label for="classType">*Class:</label>
@@ -64,7 +62,6 @@
                 <% locals.classes.forEach(classType => { %>
                   <option value="<%= classType.id %>" <%= classType.name === locals.dinosaur.class ? "selected" : "" %>><%= classType.name %></option>
                 <%  }); %>
-                <option value="">other</option>
               </select>
 
               <label for="habitat">*Habitat:</label>
@@ -72,7 +69,6 @@
                 <% locals.habitats.forEach(habitat => { %>
                   <option value="<%= habitat.id %>" <%= habitat.name === locals.dinosaur.habitat ? "selected" : "" %>><%= habitat.name %></option>
                 <%  }); %>
-                <option value="">other</option>
               </select>
 
               <label for="weight">Weight (kg):</label>

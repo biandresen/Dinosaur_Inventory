@@ -19,28 +19,24 @@
                 <% locals.periods.forEach(period => { %>
                   <option value="<%= period.id %>"><%= period.name %></option>
                   <%  }); %>
-                  <option value="">other</option>
               </select>
               <label for="diet">*Diet:</label>
               <select name="diet" id="diet" required>
                 <% locals.diets.forEach(diet => { %>
                   <option value="<%= diet.id %>"><%= diet.name %></option>
                   <%  }); %>
-                  <option value="">other</option>
               </select>
               <label for="classType">*Class:</label>
               <select name="classType" id="classType" required>
                 <% locals.classes.forEach(classType => { %>
                   <option value="<%= classType.id %>"><%= classType.name %></option>
                   <%  }); %>
-                  <option value="">other</option>
               </select>
               <label for="habitat">*Habitat:</label>
               <select name="habitat" id="habitat" required>
                 <% locals.habitats.forEach(habitat => { %>
                   <option value="<%= habitat.id %>"><%= habitat.name %></option>
                   <%  }); %>
-                  <option value="">other</option>
               </select>
               <label for="weight">Weight (kg):</label>
               <input name="weight" id="weight" type="number" >

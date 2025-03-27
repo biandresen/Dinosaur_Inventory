@@ -6,7 +6,6 @@ export const categoriesController = {
     res.render("categories", { title: "Categories", categories });
   },
   getCategories: async (req, res) => {
-    const id = req.params.id;
     const parentCategory = await db.selectParentCategoryById(id);
     const subCategories = await db.selectSubCategoriesById(id);
     res.render("category-details", {
@@ -15,16 +14,18 @@ export const categoriesController = {
       subCategories,
     });
   },
-  // getNewCategoriesForm: (req, res) => {
-  //   const parentCategories = getParentCategories();
-  //   res.render("new-category", {
-  //     title: "New Category",
-  //     parentCategories,
-  //   });
-  // },
-  // postNewCategory: (req, res) => {
-  //   const formData = req.body;
-  //   addNewCategory(formData);
-  //   res.redirect("/categories");
-  // },
+  getNewCategoriesForm: async (req, res) => {
+    const parentCategories = await db.selectAllParentCategories();
+    res.render("new-category", {
+      title: "New Category",
+      parentCategories,
+    });
+  },
+  postNewSubCategory: async (req, res) => {
+    console.log("New sub category submitted!");
+    const formData = req.body;
+    console.log("FORM DATA: ", formData);
+    const newCategoryResult = await db.insertSubCategory(formData);
+    res.redirect("/categories");
+  },
 };
