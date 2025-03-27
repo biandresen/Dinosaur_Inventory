@@ -112,6 +112,12 @@ export const db = {
     const result = await pool.query(queryText, queryParams);
     return result.rows[0];
   },
+  deleteDino: async (id) => {
+    const queryText = `DELETE FROM ${dinosaurTable} WHERE id = $1 RETURNING *;`;
+    const queryParams = [id];
+    const result = await pool.query(queryText, queryParams);
+    return result.rows[0];
+  },
 
   selectParentCategoryById: async (id) => {
     const queryText = `SELECT * FROM ${categoryTable} WHERE id = $1`;

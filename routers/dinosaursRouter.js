@@ -39,6 +39,6 @@ dinosaursRouter.post(
   upload.single("image"),
   dinosaurController.editDino
 );
-// dinosaursRouter.post("/delete/:id", dinosaurController.deleteDino);
+dinosaursRouter.post("/delete/:id", dinosaurController.deleteDino);
 
 dinosaursRouter.use(notFoundHandler);
