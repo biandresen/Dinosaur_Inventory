@@ -37,12 +37,11 @@ export const dinosaurController = {
 
     res.render("dinosaurs", { title: "Dinosaurs", dinosaurs });
   },
-
   getDinoById: async (req, res) => {
-    const id = req.params.id;
-    if (!id) return;
+    const dinoId = req.params.id;
+    if (!dinoId) return;
 
-    const dinosaur = await db.selectDinoById(id);
+    const dinosaur = await db.selectDinoById(dinoId);
 
     const subCategories = await db.selectAllSubCategories();
     const { periods, diets, classes, habitats } = subCategories;
@@ -69,75 +68,60 @@ export const dinosaurController = {
     });
   },
 
-  // postNewDino: (req, res) => {
-  //   console.log("New dino form submitted!");
-  //   const formData = req.body;
-  //   const uploadedFile = req.file;
-  //   console.log(formData);
-  //   console.log(uploadedFile);
+  postNewDino: async (req, res) => {
+    console.log("New dino form submitted!");
+    const formData = req.body;
+    const uploadedFile = req.file;
 
-  //   const imgUrl = `uploads/${uploadedFile.filename}`;
+    console.log("Form Data:", formData);
+    console.log("Uploaded File:", uploadedFile);
 
-  //   const newDino = {
-  //     name: formData.name,
-  //     period: formData.period,
-  //     diet: formData.diet,
-  //     classType: formData.classType,
-  //     habitat: formData.habitat,
-  //     weight: formData.weight || "",
-  //     height: formData.height || "",
-  //     description: formData.description,
-  //     img_url: imgUrl,
-  //   };
+    const imgUrl = `uploads/${uploadedFile.filename}`;
 
-  //   console.log("New Dino:", newDino);
-  //   addNewDino(newDino);
-  //   res.redirect("/dinosaurs");
-  // },
-  // editDino: (req, res) => {
-  //   const dinoId = Number(req.params.id);
-  //   const newDinoData = req.body;
-  //   console.log("Updating dino:", dinoId, newDinoData);
+    const newDino = {
+      name: formData.name,
+      period_id: parseInt(formData.period), //The option from the form data sends the id instead of the name
+      diet_id: parseInt(formData.diet),
+      class_id: parseInt(formData.classType),
+      habitat_id: parseInt(formData.habitat),
+      weight: parseFloat(formData.weight),
+      height: parseFloat(formData.height),
+      description: formData.description,
+      img_url: imgUrl,
+    };
 
-  //   // Find the index of the dinosaur
-  //   const dinoIndex = mockDatabase.dinosaur.findIndex(
-  //     (dino) => dino.id === dinoId
-  //   );
-  //   if (dinoIndex === -1) {
-  //     return res.status(404).send("Dinosaur not found");
-  //   }
+    console.log("New Dino Object:", newDino);
 
-  //   // Convert category names to IDs
-  //   function getCategoryId(categoryName) {
-  //     const category = mockDatabase.category.find(
-  //       (cat) => cat.name === categoryName
-  //     );
-  //     return category ? category.id : null;
-  //   }
+    try {
+      const insertedDino = await db.insertDino(newDino);
+      console.log("Inserted Dino:", insertedDino);
+      res.redirect("/dinosaurs");
+    } catch (error) {
+      console.error("Error inserting dinosaur:", error);
+      res.status(500).send("Error adding dinosaur");
+    }
+  },
 
-  //   // If no new image is uploaded, keep the old one
-  //   const existingDino = mockDatabase.dinosaur[dinoIndex];
-  //   const img_url =
-  //     req.file ? `uploads/${req.file.filename}` : existingDino.img_url;
+  editDino: async (req, res) => {
+    console.log("Dino edit submitted!");
+    const dinoId = req.params.id;
+    const formData = req.body;
+    const uploadedFile = req.file;
+    console.log("Form Data:", formData);
+    console.log("Uploaded File:", uploadedFile);
+    console.log("Current image url: ", formData.img_url);
 
-  //   // Update the dinosaur
-  //   mockDatabase.dinosaur[dinoIndex] = {
-  //     ...existingDino, // Preserve existing properties
-  //     name: newDinoData.name,
-  //     description: newDinoData.description,
-  //     weight_kg: newDinoData.weight,
-  //     height_m: newDinoData.height,
-  //     period_id: getCategoryId(newDinoData.period),
-  //     diet_id: getCategoryId(newDinoData.diet),
-  //     class_id: getCategoryId(newDinoData.classType),
-  //     habitat_id: getCategoryId(newDinoData.habitat),
-  //     img_url: img_url,
-  //   };
+    const imgUrl =
+      uploadedFile ? `uploads/${uploadedFile.filename}` : formData.img_url;
 
-  //   console.log("Updated dinosaur:", mockDatabase.dinosaur[dinoIndex]);
+    const editedDino = { ...formData, img_url: imgUrl };
+    console.log("EDITED DINO: ", editedDino);
 
-  //   res.redirect(`/dinosaurs/${dinoId}`); // Redirect back to the details page
-  // },
+    const dinoResult = await db.updateDino(dinoId, editedDino);
+    console.log("DINO RESULT: ", dinoResult);
+
+    res.redirect(`/dinosaurs/${dinoId}`);
+  },
   // deleteDino: (req, res) => {
   //   const dinoId = Number(req.params.id);
   //   console.log(dinoId);

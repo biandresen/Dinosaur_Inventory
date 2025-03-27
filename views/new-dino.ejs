@@ -17,28 +17,28 @@
               <label for="period">*Period:</label>
               <select name="period" id="period" required>
                 <% locals.periods.forEach(period => { %>
-                  <option value="<%= period.name %>"><%= period.name %></option>
+                  <option value="<%= period.id %>"><%= period.name %></option>
                   <%  }); %>
                   <option value="">other</option>
               </select>
               <label for="diet">*Diet:</label>
               <select name="diet" id="diet" required>
                 <% locals.diets.forEach(diet => { %>
-                  <option value="<%= diet.name %>"><%= diet.name %></option>
+                  <option value="<%= diet.id %>"><%= diet.name %></option>
                   <%  }); %>
                   <option value="">other</option>
               </select>
               <label for="classType">*Class:</label>
               <select name="classType" id="classType" required>
                 <% locals.classes.forEach(classType => { %>
-                  <option value="<%= classType.name %>"><%= classType.name %></option>
+                  <option value="<%= classType.id %>"><%= classType.name %></option>
                   <%  }); %>
                   <option value="">other</option>
               </select>
               <label for="habitat">*Habitat:</label>
               <select name="habitat" id="habitat" required>
                 <% locals.habitats.forEach(habitat => { %>
-                  <option value="<%= habitat.name %>"><%= habitat.name %></option>
+                  <option value="<%= habitat.id %>"><%= habitat.name %></option>
                   <%  }); %>
                   <option value="">other</option>
               </select>

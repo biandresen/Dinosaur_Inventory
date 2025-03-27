@@ -46,7 +46,7 @@
               <label for="period">*Period:</label>
               <select name="period" id="period" required>
                 <% locals.periods.forEach(period => { %>
-                  <option value="<%= period.name %>" <%= period.name === locals.dinosaur.period ? "selected" : "" %>><%= period.name %></option>
+                  <option value="<%= period.id %>" <%= period.name === locals.dinosaur.period ? "selected" : "" %>><%= period.name %></option>
                 <%  }); %>
                 <option value="">other</option>
               </select>
@@ -54,7 +54,7 @@
               <label for="diet">*Diet:</label>
               <select name="diet" id="diet" required>
                 <% locals.diets.forEach(diet => { %>
-                  <option value="<%= diet.name %>" <%= diet.name === locals.dinosaur.diet ? "selected" : "" %>><%= diet.name %></option>
+                  <option value="<%= diet.id %>" <%= diet.name === locals.dinosaur.diet ? "selected" : "" %>><%= diet.name %></option>
                 <%  }); %>
                 <option value="">other</option>
               </select>
@@ -62,7 +62,7 @@
               <label for="classType">*Class:</label>
               <select name="classType" id="classType" required>
                 <% locals.classes.forEach(classType => { %>
-                  <option value="<%= classType.name %>" <%= classType.name === locals.dinosaur.class ? "selected" : "" %>><%= classType.name %></option>
+                  <option value="<%= classType.id %>" <%= classType.name === locals.dinosaur.class ? "selected" : "" %>><%= classType.name %></option>
                 <%  }); %>
                 <option value="">other</option>
               </select>
@@ -70,7 +70,7 @@
               <label for="habitat">*Habitat:</label>
               <select name="habitat" id="habitat" required>
                 <% locals.habitats.forEach(habitat => { %>
-                  <option value="<%= habitat.name %>" <%= habitat.name === locals.dinosaur.habitat ? "selected" : "" %>><%= habitat.name %></option>
+                  <option value="<%= habitat.id %>" <%= habitat.name === locals.dinosaur.habitat ? "selected" : "" %>><%= habitat.name %></option>
                 <%  }); %>
                 <option value="">other</option>
               </select>
@@ -86,6 +86,9 @@
 
               <label for="imageUpload">Change Image (optional):</label>
               <input type="file" id="imageUpload" name="image" accept="image/*">
+              <!-- Store the current image URL in a hidden input -->
+              <input type="hidden" name="img_url" value="<%= locals.dinosaur.img_url %>">
+
               <div class="flex-row-wrapper">
                 <button type="submit" class="button form-button">Save Changes</button>
                 <button type="button" class="button form-button cancel-edit-button" id="cancelEdit">Cancel</button>

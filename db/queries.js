@@ -8,10 +8,8 @@ export const db = {
     const queryParams = [];
 
     if (filter && Object.keys(filter).length !== 0) {
-      console.log("DB Filter not empty");
-
       queryText = `SELECT ${dinosaurTable} . * FROM ${dinosaurTable} JOIN ${categoryTable} ON ${dinosaurTable}.${filter.key}_id = ${categoryTable}.id WHERE ${categoryTable}.name ILIKE $1`;
-      queryParams.push(`%${filter.value}%`); // Add % to handle partial matching with ILIKE
+      queryParams.push(`${filter.value}`); // Add % to handle partial matching with ILIKE
     }
 
     try {
@@ -57,6 +55,64 @@ export const db = {
       img_url: dino.img_url,
     };
   },
+  insertDino: async (dino) => {
+    const client = await pool.connect();
+    try {
+      await client.query("BEGIN"); // Start transaction
+
+      const queryText = `
+            INSERT INTO dinosaur
+            (name, description, weight_kg, height_m, period_id, diet_id, class_id, habitat_id, img_url)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            RETURNING *;
+        `;
+      const queryParams = [
+        dino.name,
+        dino.description,
+        dino.weight,
+        dino.height,
+        dino.period_id,
+        dino.diet_id,
+        dino.class_id,
+        dino.habitat_id,
+        dino.img_url,
+      ];
+
+      const result = await client.query(queryText, queryParams);
+      await client.query("COMMIT"); // Commits transaction
+
+      return result.rows[0];
+    } catch (error) {
+      await client.query("ROLLBACK"); // Rollback inserted data so the data isn't inconsistent if it fails before everything is done
+      console.error("Error inserting dinosaur:", error);
+      throw error;
+    } finally {
+      client.release(); // Disconnects from the pool to release resources
+    }
+  },
+  updateDino: async (id, dino) => {
+    const queryText = `
+        UPDATE ${dinosaurTable}
+        SET name = $1, description = $2, weight_kg = $3, height_m = $4, period_id = $5, diet_id = $6, class_id = $7, habitat_id = $8, img_url = $9
+        WHERE id = $10
+        RETURNING *;
+    `;
+    const queryParams = [
+      dino.name,
+      dino.description,
+      dino.weight,
+      dino.height,
+      dino.period,
+      dino.diet,
+      dino.classType,
+      dino.habitat,
+      dino.img_url,
+      id,
+    ];
+    const result = await pool.query(queryText, queryParams);
+    return result.rows[0];
+  },
+
   selectParentCategoryById: async (id) => {
     const queryText = `SELECT * FROM ${categoryTable} WHERE id = $1`;
     const queryParams = [id];
@@ -91,5 +147,11 @@ export const db = {
     const queryParams = [id];
     const result = await pool.query(queryText, queryParams);
     return result.rows;
+  },
+  selectSubCategoryIdByName: async (name) => {
+    const queryText = `SELECT ${categoryTable}.id FROM ${categoryTable} WHERE name = $1`;
+    const queryParams = [name];
+    const result = await pool.query(queryText, queryParams);
+    return result.rows[0].id;
   },
 };

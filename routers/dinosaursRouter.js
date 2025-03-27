@@ -28,16 +28,17 @@ dinosaursRouter.get("/new-dino", dinosaurController.getNewDinoForm);
 dinosaursRouter.get("/:id", dinosaurController.getDinoById);
 dinosaursRouter.get("/", dinosaurController.getDinos);
 
-// dinosaursRouter.post(
-//   "/new-dino",
-//   upload.single("image"),
-//   dinosaurController.postNewDino
-// );
-// dinosaursRouter.post(
-//   "/edit/:id",
-//   upload.single("image"),
-//   dinosaurController.editDino
-// );
+dinosaursRouter.post(
+  "/new-dino",
+  upload.single("image"),
+  dinosaurController.postNewDino
+);
+
+dinosaursRouter.post(
+  "/edit/:id",
+  upload.single("image"),
+  dinosaurController.editDino
+);
 // dinosaursRouter.post("/delete/:id", dinosaurController.deleteDino);
 
 dinosaursRouter.use(notFoundHandler);
