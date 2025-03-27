@@ -685,6 +685,10 @@ footer {
   .dino-details-page__section {
     max-width: 700px;
   }
+  .dino-details-page__error-heading {
+    margin: 30px auto;
+    font-size: var(--font-size-40px);
+  }
   .new-dino-page__image {
     max-width: 80%;
     margin: 0 0 -5px 0;

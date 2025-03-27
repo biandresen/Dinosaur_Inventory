@@ -19,7 +19,7 @@ export const dinosaurController = {
       } catch (error) {
         console.log("ERROR: ", error);
         // Send a meaningful response to the user here
-        res.status(500).send("Error fetching dinosaurs");
+        res.status(500).redirect("404");
         return;
       }
     } else {
@@ -30,7 +30,7 @@ export const dinosaurController = {
       } catch (error) {
         console.log("ERROR: ", error);
         // Send a meaningful response to the user here
-        res.status(500).send("Error fetching dinosaurs");
+        res.status(500).redirect("404");
         return;
       }
     }
@@ -39,9 +39,21 @@ export const dinosaurController = {
   },
   getDinoById: async (req, res) => {
     const dinoId = req.params.id;
-    if (!dinoId) return;
+    // Check if the ID is a valid number and not 0
+    if (isNaN(dinoId) || dinoId == 0) {
+      return res.status(404).render("404", { title: "Page Not Found" }); // Render 404 if invalid ID
+    }
 
+    // Fetch the dinosaur from the database
     const dinosaur = await db.selectDinoById(dinoId);
+
+    // Check if the dinosaur exists in the database
+    if (!dinosaur) {
+      return res.render("dino-details", {
+        title: "Dinosaur Not Found",
+        message: `We couldn't find any dinosaur with ID ${dinoId}`,
+      }); // Render not found message if no dinosaur matches the ID
+    }
 
     const subCategories = await db.selectAllSubCategories();
     const { periods, diets, classes, habitats } = subCategories;
