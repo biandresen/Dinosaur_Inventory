@@ -57,7 +57,10 @@ export async function seedCategories() {
   console.log("Seeding categories...");
 
   const client = new Client({
-    connectionString: `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@localhost:5432/dino_inventory`,
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false, // Ensure SSL for cloud connections (e.g., Railway)
+    },
   });
 
   try {
