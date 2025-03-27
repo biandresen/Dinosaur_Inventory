@@ -6,6 +6,13 @@ export const categoriesController = {
     res.render("categories", { title: "Categories", categories });
   },
   getCategories: async (req, res) => {
+    const id = req.params.id;
+    const allowedIds = ["1", "2", "3", "4"]; // Allowed category IDs as strings
+
+    if (!allowedIds.includes(id)) {
+      return res.status(404).render("404"); // Render 404 page if ID is invalid
+    }
+
     const parentCategory = await db.selectParentCategoryById(id);
     const subCategories = await db.selectSubCategoriesById(id);
     res.render("category-details", {

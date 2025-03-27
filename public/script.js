@@ -9,8 +9,6 @@ if (localStorage.getItem("theme") === "light") {
 // Toggle theme on button click
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
-  themeToggle.textContent =
-    themeToggle.textContent === "Light" ? "Dark" : "Light";
 
   // Save preference to localStorage
   if (document.body.classList.contains("light-mode")) {
