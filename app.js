@@ -1,11 +1,11 @@
 import express from "express";
-import "dotenv/config";
+// import "dotenv/config";
 import { indexRouter } from "./routers/indexRouter.js";
 import { dinosaursRouter } from "./routers/dinosaursRouter.js";
 import { categoriesRouter } from "./routers/categoriesRouter.js";
 import { authRouter } from "./routers/authRouter.js";
 
-const PORT = process.env.PORT || 4600;
+const PORT = process.env.PORT; // || 4600;
 const app = express();
 
 // Middleware setup

@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node db/runAllDbScripts.js && node app.js",
-    "build": "node app.js",
+    "start": "node app.js",
     "dev": "node --watch app.js",
-    "createData": "node db/runAllDbScripts.js"
+    "createData": "node db/runAllDbScripts.js",
+    "postinstall": "node db/runAllDbScripts.js"
   },
   "repository": {
     "type": "git",
